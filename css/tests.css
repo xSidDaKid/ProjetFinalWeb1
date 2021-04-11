@@ -1,0 +1,4 @@
+/*
+   Fichier de css pour les tests.
+*/
+table, td,th {border:1px black solid;border-collapse: collapse;text-align:left;}
