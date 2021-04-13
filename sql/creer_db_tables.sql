@@ -1,3 +1,14 @@
+#
+# Description : Script SQL pour créer la base de données "cinema",
+#               les tables utilisateurs, acheteur, infos_Cinema, tab_Cinema et billet.
+#               Script qui insérer divers données.
+#               
+# Date        : 2021/04/13
+# Auteurs      : Kumaran Satkunanathan
+#                Louai Roueha
+#                Shajaan Balasingam
+#
+
 CREATE DATABASE cinema DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 USE cinema;
@@ -41,3 +52,10 @@ CREATE TABLE billet (
   id_acheteur        INT(10),
   CONSTRAINT numeroB_pk PRIMARY KEY (numero_billet)
 );
+
+#5 utilisateurs
+INSERT INTO utilisateur VALUES (100, 'root', 'acheteur');
+INSERT INTO utilisateur VALUES (101, 'root', 'acheteur');
+INSERT INTO utilisateur VALUES (102, 'root', 'acheteur');
+INSERT INTO utilisateur VALUES (103, 'root', 'administrateur');
+INSERT INTO utilisateur VALUES (104, 'root', 'administrateur');
