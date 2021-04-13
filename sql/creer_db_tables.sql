@@ -1,6 +1,6 @@
 CREATE DATABASE cinema DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
-USE cinema
+USE cinema;
 
 CREATE TABLE utilisateur (
   id_utilisateur    INT(10),
