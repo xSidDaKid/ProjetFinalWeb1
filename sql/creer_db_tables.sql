@@ -59,3 +59,10 @@ INSERT INTO utilisateur VALUES (101, 'root', 'acheteur');
 INSERT INTO utilisateur VALUES (102, 'root', 'acheteur');
 INSERT INTO utilisateur VALUES (103, 'root', 'administrateur');
 INSERT INTO utilisateur VALUES (104, 'root', 'administrateur');
+
+#3 acheteurs
+INSERT INTO utilisateur VALUES (100, 'AcheteurA', '5141231234',100);
+INSERT INTO utilisateur VALUES (101, 'AcheteurB', '5145647891',0);
+INSERT INTO utilisateur VALUES (102, 'AcheteurC', '5144489712',0);
+
+
