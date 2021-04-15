@@ -61,8 +61,23 @@ INSERT INTO utilisateur VALUES (103, 'root', 'administrateur');
 INSERT INTO utilisateur VALUES (104, 'root', 'administrateur');
 
 #3 acheteurs
-INSERT INTO utilisateur VALUES (100, 'AcheteurA', '5141231234',100);
-INSERT INTO utilisateur VALUES (101, 'AcheteurB', '5145647891',0);
-INSERT INTO utilisateur VALUES (102, 'AcheteurC', '5144489712',0);
+INSERT INTO acheteur VALUES (100, 'AcheteurA', '5141231234',100);
+INSERT INTO acheteur VALUES (101, 'AcheteurB', '5145647891',0);
+INSERT INTO acheteur VALUES (102, 'AcheteurC', '5144489712',0);
+
+#4 infos_Cinema
+INSERT INTO infos_Cinema VALUES (100, 'Cinéma de Montréal','photo.jpeg');
+INSERT INTO infos_Cinema VALUES (101, 'Cinéma Québécoise', 'photo1.jpeg');
+INSERT INTO infos_Cinema VALUES (102, 'Paris Cinemas', 'photo2.jpeg');
+INSERT INTO infos_Cinema VALUES (103, 'Cinéma Rosemont', 'photo3.jpeg');
+
+#6 tab_Cinema
+INSERT INTO tab_Cinema VALUES (100, 5-04-2021, 5.30, 100, 5, 0019);
+INSERT INTO tab_Cinema VALUES (101, 6-04-2021, 5.30, 100, 50, 0020);
+INSERT INTO tab_Cinema VALUES (102, 7-04-2021, 5.30, 100, 25, 0021);
+INSERT INTO tab_Cinema VALUES (103, 8-04-2021, 5.30, 100, 75, 0022);
+INSERT INTO tab_Cinema VALUES (104, 5-04-2021, 5.30, 100, 65, 0019);
+INSERT INTO tab_Cinema VALUES (105, 6-04-2021, 5.30, 100, 10, 0020);
+
 
 
