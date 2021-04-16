@@ -1,3 +1,5 @@
+<?php
+
 /*
 #
 # Description : Classe Billet
@@ -9,9 +11,7 @@
 #
 */
 
-<?php
-
-    class Billet {
+class Billet {
 	
     // Attributs
     private $numeroBillet;//int
