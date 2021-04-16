@@ -1,3 +1,15 @@
+/*
+#
+# Description : Classe Acheteur
+#               
+# Date        : 2021/04/16
+# Auteurs     : Kumaran Satkunanathan
+#               Louai Roueha
+#               Shajaan Balasingam
+#
+*/
+
+
 <?php
 class Acheteur {
     // Attributs
