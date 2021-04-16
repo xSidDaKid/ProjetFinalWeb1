@@ -33,9 +33,6 @@ class InfosCinema{
 
     //toString
     public function __toString() {
-       $message = "[#" .$this->idAcheteur. "] ".$this->nom.", Telephone: " .$this->telephone. ", Solde: " .$this->solde;
-       foreach ($lesBillets as $unBillet) {
-			echo "Billet: " .$unBillet;
-		}       
+       return $message = "[#" .$this->codeInfos. "] ".$this->titre.", Photo: " .$this->urlPhoto;
     }
 }
