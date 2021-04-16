@@ -1,3 +1,4 @@
+<?php
 /*
 #
 # Description : Classe Acheteur
@@ -9,8 +10,14 @@
 #
 */
 
+// ****** INLCUSIONS *******
+// si la constante n'existe pas, on la crée
+if (defined("DOSSIER_BASE_INCLUDE") == false) {
+	$chemin=(substr($_SERVER['DOCUMENT_ROOT'],-1)=="/")?$_SERVER['DOCUMENT_ROOT']:$_SERVER['DOCUMENT_ROOT']."/";
+	define("DOSSIER_BASE_INCLUDE", $chemin."projet_h2021_g16/");
+}
+include_once(DOSSIER_BASE_INCLUDE."modele/Billet.class.php"); 
 
-<?php
 class Acheteur {
     // Attributs
     private $idAcheteur;//int
@@ -33,7 +40,7 @@ class Acheteur {
     public function getSolde() { return $this->solde; }
     public function getLesBillets() { return $this->lesBillets; }
     
-    public function setTelephone() { $this->telephone = $unTelephone; }
+    public function setTelephone($valeur) { $this->telephone = $unTelephone; }
 
     public function ajouterBillet($nouveauBillet){
 

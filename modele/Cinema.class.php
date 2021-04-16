@@ -1,0 +1,51 @@
+<?php
+
+/*
+#
+# Description : Classe Cinema
+#               
+# Date        : 2021/04/16
+# Auteurs     : Kumaran Satkunanathan
+#               Louai Roueha
+#               Shajaan Balasingam
+#
+*/
+
+// ****** INLCUSIONS *******
+// si la constante n'existe pas, on la crée
+if (defined("DOSSIER_BASE_INCLUDE") == false) {
+	$chemin=(substr($_SERVER['DOCUMENT_ROOT'],-1)=="/")?$_SERVER['DOCUMENT_ROOT']:$_SERVER['DOCUMENT_ROOT']."/";
+	define("DOSSIER_BASE_INCLUDE", $chemin."projet_h2021_g16/");
+}
+include_once(DOSSIER_BASE_INCLUDE."modele/InfosCinema.class.php"); 
+
+class Cinema {
+
+    // Attributs
+    private $numeroCinema;//int
+    private $laDate;//String
+    private $prixUnBillet;//Float
+    private $placesTotales;//int
+    private $placesVendues;//int
+    private $infos;//InfosCinema
+
+    //Constructeur
+    public function __construct($unNumero, $uneDate, unPrix, $placesTotales, $placesVendues, $desInfos) {
+
+    }
+
+    // Accesseurs et mutateurs
+	public function getNumeroCinema() { return $this->numeroCinema; }
+    public function getLaDate() { return $this->$aDate; }
+    public function getPrixUnBillet() { return $this->prixUnBillet; }
+    public function getPlaceTotales() { return $this->placesTotales; }
+    public function getPlaceVendues() { return $this->placesVendues; }
+    public function getInfos() { return $this->infos; }
+
+    public function setPrixUnBillet($valeur) { return $this->infos; }
+    public function setInfos($valeur) { return $this->infos; }
+
+    public function __toString() {
+        return $message = "Numero Cinéma: " .$this->numeroCinema. ", Date: " .$this->laDate. ", Prix d'un billet: " .$this->prixUnBillet. ", Places Totales: ".$this->placesTotales.", Places Vendues: ".$this->placesVendues."Info: ".$this->infos;
+    }
+}
