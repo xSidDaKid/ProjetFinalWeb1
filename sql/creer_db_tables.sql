@@ -25,7 +25,7 @@ CREATE TABLE acheteur (
   nom               VARCHAR(255),
   telephone         VARCHAR(255),
   solde             DECIMAL(8, 2),
-  CONSTRAINT acheteur_fk FOREIGN KEY (id_acheteur) REFERENCES billet(id_acheteur)
+  CONSTRAINT acheteur_pk PRIMARY KEY (id_acheteur) 
 );
 
 CREATE TABLE infos_Cinema (
@@ -42,7 +42,8 @@ CREATE TABLE tab_Cinema (
   places_totales     INT(10),
   places_vendues     INT(10),
   code_infos         INT(10),
-  CONSTRAINT numero_pk PRIMARY KEY (numero_Cinema)
+  CONSTRAINT numero_pk PRIMARY KEY (numero_Cinema),
+  CONSTRAINT code_infos_fk FOREIGN KEY (code_infos) REFERENCES infos_Cinema(code_infos)
 );
 
 CREATE TABLE billet (
@@ -50,7 +51,9 @@ CREATE TABLE billet (
   prix_paye          DECIMAL(8,2),
   numero_Cinema      INT(10),
   id_acheteur        INT(10),
-  CONSTRAINT numeroB_pk PRIMARY KEY (numero_billet)
+  CONSTRAINT numeroB_pk PRIMARY KEY (numero_billet),
+  CONSTRAINT numero_Cinema_fk1 FOREIGN KEY (numero_billet) REFERENCES tab_Cinema(numero_Cinema),
+  CONSTRAINT id_acheteur_fk1 FOREIGN KEY (id_acheteur) REFERENCES acheteur(id_acheteur)
 );
 
 #5 utilisateurs
@@ -72,12 +75,12 @@ INSERT INTO infos_Cinema VALUES (102, 'Paris Cinemas', 'photo2.jpeg');
 INSERT INTO infos_Cinema VALUES (103, 'Cinéma Rosemont', 'photo3.jpeg');
 
 #6 tab_Cinema
-INSERT INTO tab_Cinema VALUES (100, 5-04-2021, 5.30, 100, 5, 0019);
-INSERT INTO tab_Cinema VALUES (101, 6-04-2021, 5.30, 100, 50, 0020);
-INSERT INTO tab_Cinema VALUES (102, 7-04-2021, 5.30, 100, 25, 0021);
-INSERT INTO tab_Cinema VALUES (103, 8-04-2021, 5.30, 100, 75, 0022);
-INSERT INTO tab_Cinema VALUES (104, 5-04-2021, 5.30, 100, 65, 0019);
-INSERT INTO tab_Cinema VALUES (105, 6-04-2021, 5.30, 100, 10, 0020);
+INSERT INTO tab_Cinema VALUES (100, "5042021", 5.30, 100, 5, 0019);
+INSERT INTO tab_Cinema VALUES (101, "6042021", 5.30, 100, 50, 0020);
+INSERT INTO tab_Cinema VALUES (102, "7042021", 5.30, 100, 25, 0021);
+INSERT INTO tab_Cinema VALUES (103, "8042021", 5.30, 100, 75, 0022);
+INSERT INTO tab_Cinema VALUES (104, "5042021", 5.30, 100, 65, 0019);
+INSERT INTO tab_Cinema VALUES (105, "6042021", 5.30, 100, 10, 0020);
 
 
 
