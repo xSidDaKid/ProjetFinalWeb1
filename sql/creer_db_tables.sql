@@ -25,7 +25,8 @@ CREATE TABLE acheteur (
   nom               VARCHAR(255),
   telephone         VARCHAR(255),
   solde             DECIMAL(8, 2),
-  CONSTRAINT acheteur_pk PRIMARY KEY (id_acheteur) 
+  CONSTRAINT acheteur_pk PRIMARY KEY (id_acheteur), 
+  CONSTRAINT id_user_fk FOREIGN KEY (id_acheteur) REFERENCES utilisateur(id_utilisateur)
 );
 
 CREATE TABLE infos_Cinema (
@@ -69,26 +70,26 @@ INSERT INTO acheteur VALUES (101, 'AcheteurB', '5145647891',0);
 INSERT INTO acheteur VALUES (102, 'AcheteurC', '5144489712',0);
 
 #4 infos_Cinema
-INSERT INTO infos_Cinema VALUES (100, 'Cinéma de Montréal','photo.jpeg');
-INSERT INTO infos_Cinema VALUES (101, 'Cinéma Québécoise', 'photo1.jpeg');
-INSERT INTO infos_Cinema VALUES (102, 'Paris Cinemas', 'photo2.jpeg');
-INSERT INTO infos_Cinema VALUES (103, 'Cinéma Rosemont', 'photo3.jpeg');
+INSERT INTO infos_Cinema VALUES (0019, 'Cinéma de Montréal','photo.jpeg');
+INSERT INTO infos_Cinema VALUES (0020, 'Cinéma Québécoise', 'photo1.jpeg');
+INSERT INTO infos_Cinema VALUES (0021, 'Paris Cinemas', 'photo2.jpeg');
+INSERT INTO infos_Cinema VALUES (0022, 'Cinéma Rosemont', 'photo3.jpeg');
 
 #6 tab_Cinema
-INSERT INTO tab_Cinema VALUES (100, "5042021", 5.30, 100, 5, 0019);
-INSERT INTO tab_Cinema VALUES (101, "6042021", 5.30, 100, 50, 0020);
-INSERT INTO tab_Cinema VALUES (102, "7042021", 5.30, 100, 25, 0021);
-INSERT INTO tab_Cinema VALUES (103, "8042021", 5.30, 100, 75, 0022);
-INSERT INTO tab_Cinema VALUES (104, "5042021", 5.30, 100, 65, 0019);
-INSERT INTO tab_Cinema VALUES (105, "6042021", 5.30, 100, 10, 0020);
+INSERT INTO tab_Cinema VALUES (100, "2021-04-05", 5.30, 100, 5, 0019);
+INSERT INTO tab_Cinema VALUES (101, "2021-04-06", 5.30, 100, 50, 0020);
+INSERT INTO tab_Cinema VALUES (102, "2021-04-07", 5.30, 100, 25, 0021);
+INSERT INTO tab_Cinema VALUES (103, "2021-04-08", 5.30, 100, 75, 0022);
+INSERT INTO tab_Cinema VALUES (104, "2021-04-09", 5.30, 100, 65, 0019);
+INSERT INTO tab_Cinema VALUES (105, "2021-04-10", 5.30, 100, 10, 0020);
 
 #6 billet
-INSERT INTO billet VALUES (100, 5.30, 100, 0001);
-INSERT INTO billet VALUES (101, 5.30, 101, 0002);
-INSERT INTO billet VALUES (102, 5.30, 101, 0003);
-INSERT INTO billet VALUES (103, 5.30, 102, 0004);
-INSERT INTO billet VALUES (104, 5.30, 102, 0005);
-INSERT INTO billet VALUES (105, 5.30, 102, 0006);
+INSERT INTO billet VALUES (100, 5.30, 100, 100);
+INSERT INTO billet VALUES (101, 5.30, 101, 101);
+INSERT INTO billet VALUES (102, 5.30, 101, 102);
+INSERT INTO billet VALUES (103, 5.30, 102, 103);
+INSERT INTO billet VALUES (104, 5.30, 102, 104);
+INSERT INTO billet VALUES (105, 5.30, 102, 105);
 
 
 
