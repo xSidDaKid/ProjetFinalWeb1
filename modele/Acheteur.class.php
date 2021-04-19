@@ -57,9 +57,9 @@ class Acheteur {
 
     public function __toString() {
        $message = "[#" .$this->idAcheteur. "] ".$this->nom.", Telephone: " .$this->telephone. ", Solde: " .$this->solde;
-       foreach ($lesBillets as $unBillet) {
+      /* foreach ($lesBillets as $unBillet) {
 			echo "Billet: " .$unBillet;
-		}  
+		}  */ //$lesBillets n'est pas initialiser
         return $message;
     }
 }
