@@ -43,15 +43,16 @@ class Acheteur {
     public function setTelephone($valeur) { $this->telephone = $unTelephone; }
 
     public function ajouterBillet($nouveauBillet){
+        array_push ($lesBillets, $nouveauBillet);
 
     }
 
     public function chargerSolde($montant){
-
+        $this->solde += $montant;
     }
 
     public function payerSolde($montant){
-
+        $this->solde -= $montant;
     }
 
     public function __toString() {
