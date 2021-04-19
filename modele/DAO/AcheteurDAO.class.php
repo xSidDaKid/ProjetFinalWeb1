@@ -123,6 +123,25 @@ class AcheteurDAO implements DAO {
 
 			return $requete->execute($tableauInfos);
 	} 
+	public static function modifier($unAcheteur) {
+
+			// on essaie d’établir la connexion
+			try {
+				$connexion=ConnexionBD::getInstance();
+			} catch (Exception $e) {
+				throw new Exception("Impossible d’obtenir la connexion à la BD."); 
+			}
+			
+			// On prépare la commande update
+			$requete=$connexion->prepare("UPDATE acheteur SET id_acheteur=?,nom=?, telephone=?, solde=? WHERE id_acheteur=?");
+			
+			// On prépare le tableau de paramètres (si nom du district est la valeur par défaut "Aucun", on utilise null)
+			$tableauInfos=[$unAcheteur->getNom(),$unAcheteur->getTelephone(),
+							$unAcheteur->getSolde(), $unAcheteur->getIdAcheteur()];
+
+			// On exécute la requête			   
+			$requete->execute($tableauInfos);		
+	}
 
 	public static function supprimer($unAcheteur){
 

@@ -40,7 +40,7 @@ class Acheteur {
     public function getSolde() { return $this->solde; }
     public function getLesBillets() { return $this->lesBillets; }
     
-    public function setTelephone($valeur) { $this->telephone = $unTelephone; }
+    public function setTelephone($unTelephone) { $this->telephone = $unTelephone; }
 
     public function ajouterBillet($nouveauBillet){
         array_push ($lesBillets, $nouveauBillet);
