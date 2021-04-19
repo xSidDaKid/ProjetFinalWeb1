@@ -118,8 +118,8 @@ class AcheteurDAO implements DAO {
 			$requete=$connexion->prepare("INSERT INTO acheteur (id_acheteur,nom,telephone,solde) VALUES (?,?,?,?)");
 
 			// On l’exécute, et on retourne l’état de réussite (true/false)
-			$tableauInfos=[$unAcheteur->getIdUtilisateur(),$unAcheteur->getNom(),$unAcheteur->getTelephone(),
-							$unAcheteur->getSolde()];//Essayer de trouver une façon de prendre le id utilisateur
+			$tableauInfos=[$unAcheteur->getIdAcheteur(),$unAcheteur->getNom(),$unAcheteur->getTelephone(),
+							$unAcheteur->getSolde()];
 
 			return $requete->execute($tableauInfos);
 	} 
