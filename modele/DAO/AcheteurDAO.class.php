@@ -103,6 +103,25 @@ class AcheteurDAO implements DAO {
 			$requete-> closeCursor();
 			ConnexionBD::close();	
 			return $tableau;
+	}
+
+	public static function inserer($unAcheteur){ //MARCHE PAS!!
+
+			// on essaie d’établir la connexion
+			try {
+				$connexion=ConnexionBD::getInstance();
+			} catch (Exception $e) {
+				throw new Exception("Impossible d’obtenir la connexion à la BD."); 
+			}
+
+			// On prépare la commande insert
+			$requete=$connexion->prepare("INSERT INTO acheteur (id_acheteur,nom,telephone,solde) VALUES (?,?,?,?)");
+
+			// On l’exécute, et on retourne l’état de réussite (true/false)
+			$tableauInfos=[$unAcheteur->getIdUtilisateur(),$unAcheteur->getNom(),$unAcheteur->getTelephone(),
+							$unAcheteur->getSolde()];//Essayer de trouver une façon de prendre le id utilisateur
+
+			return $requete->execute($tableauInfos);
 	} 
 }
 
