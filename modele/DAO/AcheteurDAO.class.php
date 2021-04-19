@@ -15,6 +15,7 @@ if (defined("DOSSIER_BASE_INCLUDE") == false) {
 	define("DOSSIER_BASE_INCLUDE", $chemin."projet_h2021_g16/");
 }
 include_once(DOSSIER_BASE_INCLUDE."modele/Billet.class.php"); 
+include_once(DOSSIER_BASE_INCLUDE."modele/Acheteur.class.php");
 include_once(DOSSIER_BASE_INCLUDE."modele/DAO/DAO.interface.php");
 
 class AcheteurDAO implements DAO {	
