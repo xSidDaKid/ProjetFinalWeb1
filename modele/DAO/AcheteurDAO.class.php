@@ -15,6 +15,8 @@ if (defined("DOSSIER_BASE_INCLUDE") == false) {
 	define("DOSSIER_BASE_INCLUDE", $chemin."projet_h2021_g16/");
 }
 include_once(DOSSIER_BASE_INCLUDE."modele/Billet.class.php"); 
+include_once(DOSSIER_BASE_INCLUDE."modele/DAO/DAO.interface.php");
+
 class AcheteurDAO implements DAO {	
 
 	public static function chercher($unNumero) { 
@@ -28,21 +30,21 @@ class AcheteurDAO implements DAO {
 			$unAcheteur=null;
 			
 			// Préparer et exécute une requête de type DAOStatement avec des paramètres SQL	
-			$requete=$connexion->prepare("SELECT * FROM district WHERE nom=?");
+			$requete=$connexion->prepare("SELECT * FROM acheteur WHERE id_acheteur=?");
 			$requete->execute(array($unNumero));
 			// Analyser l’enregistrement, s’il existe,
 			if ($requete->rowCount()!=0) {
 				// ... et créer l’instance de l'Acheteur
 				$rangee=$requete->fetch();
 				$unAcheteur = new Acheteur($rangee['id_acheteur'], $rangee['nom'], $rangee['telephone'], $rangee['solde']);
-               
-				}
+            
+				
 			}
 			
 			// fermer le curseur de la requête et la connexion à la BD
 			$requete->closeCursor();
 			ConnexionBD::close();
-			return $unDistrict;
+			return $unAcheteur;
 		} 
 }
 

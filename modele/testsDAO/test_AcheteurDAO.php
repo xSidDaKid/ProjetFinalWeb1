@@ -17,7 +17,7 @@
 	<?php
 		// ****** INLCUSIONS *******
 		// Importe l'interface DAO et la classe ZZZZDAO 
-		//include_once "../DAO/ZZZZDAO.class.php"; 
+		include_once "../DAO/AcheteurDAO.class.php"; 
 	?>
 
 	<!---- Utilisation et affichage des méthodes -->

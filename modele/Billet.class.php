@@ -19,7 +19,7 @@ if (defined("DOSSIER_BASE_INCLUDE") == false) {
 }
 include_once(DOSSIER_BASE_INCLUDE."modele/Cinema.class.php"); 
 
-class Billet extends Billet{
+class Billet {
 	
     // Attributs
     private $numeroBillet;//int
@@ -45,4 +45,5 @@ class Billet extends Billet{
     public function __toString() {
         return $message = "[#" .$this->idAcheteur. "] Numéro du Billet: " .$this->numeroBillet. ", Prix payée: " .$this->prixPaye. ", Événement: ".$this->evenement;
     }
+}
 ?>
