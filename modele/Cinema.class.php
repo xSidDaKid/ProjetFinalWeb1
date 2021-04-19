@@ -30,7 +30,13 @@ class Cinema {
     private $infos;//InfosCinema
 
     //Constructeur
-    public function __construct($unNumero, $uneDate, unPrix, $placesTotales, $placesVendues, $desInfos) {
+    public function __construct($unNumero, $uneDate, $unPrix, $placesTotales, $placesVendues, $desInfos) {
+        $this->numeroCinema = $unNumero;
+		$this->laDate = $uneDate;
+		$this->prixUnBillet = $unPrix;
+		$this->placesTotales = $placesTotales;
+		$this->placesVendues = $placesVendues; 
+        $this->desInfos = $desInfos;
 
     }
 
