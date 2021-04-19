@@ -123,6 +123,23 @@ class AcheteurDAO implements DAO {
 
 			return $requete->execute($tableauInfos);
 	} 
+
+	public static function supprimer($unAcheteur){
+
+			// on essaie d’établir la connexion
+			try {
+				$connexion=ConnexionBD::getInstance();
+			} catch (Exception $e) {
+				throw new Exception("Impossible d’obtenir la connexion à la BD."); 
+			}
+
+			// On prépare la commande insert
+			$requete=$connexion->prepare("DELETE FROM acheteur WHERE id_acheteur=?");
+			
+			// On l’exécute, et on retourne l’état de réussite (true/false)
+			$tableauInfos=[$unAcheteur->getIdAcheteur()];
+			return $requete->execute($tableauInfos);
+	} 
 }
 
 ?>

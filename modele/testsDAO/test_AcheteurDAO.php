@@ -76,7 +76,6 @@
 						UtilisateurDAO::inserer($unUser);
 						echo "$unID";
 						$unAcheteur = new Acheteur($unID, 'AcheteurD', '5149998798', 1000);
-						echo "$unAcheteur";
 						$test=AcheteurDAO::inserer($unAcheteur); // va réussir la 1ere fois
 						echo "$test";
 						echo "<ul><li>Insertion #1".($test?" a réussie":" a échouée")."</li></ul>";
