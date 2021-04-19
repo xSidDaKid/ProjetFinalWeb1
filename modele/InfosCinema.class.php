@@ -28,7 +28,9 @@ class InfosCinema extends Cinema {
 
     //Constructeur
     public function __construct($unCode, $unTitre, $unUrl) {
-        
+        $this->codeInfos = $unCode;
+		$this->titre = $unTitre;
+		$this->urlPhoto = $unUrl;
     }
 
     // Accesseurs et mutateurs
