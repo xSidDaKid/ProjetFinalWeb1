@@ -22,9 +22,9 @@
 		//         2) Si la clé primaire est composée, alors le paramètre est un tableau assiociatif
 		static public function chercher($cles); 
 		// Cette méthode doit retourner une liste de tous les objets reliés à la table de la BD
-		/*static public function chercherTous(); 
+		static public function chercherTous(); 
 		// Comme la méthode chercherTous, mais en applicant le filtre (clause WHERE ...) reçue en param.
-		static public function chercherAvecFiltre($filtre); 
+		/*static public function chercherAvecFiltre($filtre); 
 		// Cette méthode insère l'objet reçu en paramètre dans la table
 		// Retourne true/false selon que l'opération a été un succès ou pas.
 		static public function inserer($unObjet); 

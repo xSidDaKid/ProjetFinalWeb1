@@ -45,7 +45,10 @@
 				<td>chercher avec filtre</td>
 				<td>
 					<?php 
-
+						$tableau=AcheteurDAO::chercherTous();
+						foreach($tableau as $unAcheteur) {
+							echo $unAcheteur."<br/>";
+						}
 					?>
 				</td>
 			</tr>

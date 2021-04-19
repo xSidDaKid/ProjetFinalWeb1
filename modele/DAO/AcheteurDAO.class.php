@@ -46,7 +46,34 @@ class AcheteurDAO implements DAO {
 			$requete->closeCursor();
 			ConnexionBD::close();
 			return $unAcheteur;
-		} 
+	}
+
+	public static function chercherTous() {
+		// obtenir la connexion
+			try {
+				$connexion=ConnexionBD::getInstance();
+			} catch (Exception $e) {
+				throw new Exception("Impossible d’obtenir la connexion à la BD."); 
+			}
+
+			// initialisation du tableau à retourner
+			$tableau=[];	
+
+			// Préparer une requête de type PDOStatement avec des paramètres SQL et l'exécuter	
+			$requete=$connexion->prepare("SELECT * FROM acheteur");
+			$requete->execute();
+
+			// Analyser les enregistrements s'il y en a 
+			foreach ($requete as $rangee) {
+				$unAcheteur = new Acheteur($rangee['id_acheteur'], $rangee['nom'], $rangee['telephone'], $rangee['solde']);							
+				array_push($tableau,$unAcheteur);
+			}
+			
+			// fermer les curseur de la requête et la connexion, puis retourner le tableau d'objets de type Candidat
+			$requete-> closeCursor();
+			ConnexionBD::close();	
+			return $tableau;
+	} 
 }
 
 ?>

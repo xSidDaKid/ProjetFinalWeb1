@@ -66,8 +66,8 @@ INSERT INTO utilisateur VALUES (104, 'root', 'administrateur');
 
 #3 acheteurs
 INSERT INTO acheteur VALUES (100, 'AcheteurA', '5141231234',100);
-INSERT INTO acheteur VALUES (101, 'AcheteurB', '5145647891',0);
-INSERT INTO acheteur VALUES (102, 'AcheteurC', '5144489712',0);
+INSERT INTO acheteur VALUES (101, 'AcheteurB', '5145647891',20);
+INSERT INTO acheteur VALUES (102, 'AcheteurC', '5144489712',50);
 
 #4 infos_Cinema
 INSERT INTO infos_Cinema VALUES (0019, 'Cinéma de Montréal','photo.jpeg');
