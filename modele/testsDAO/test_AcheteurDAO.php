@@ -45,10 +45,13 @@
 				<td>chercher avec filtre</td>
 				<td>
 					<?php 
-						$tableau=AcheteurDAO::chercherTous();
-						foreach($tableau as $unAcheteur) {
-							echo $unAcheteur."<br/>";
+						echo "<h3>On cherche tous les acheteurs ayant le nom AcheteurB</h3>";
+						$tabAcheteurs=AcheteurDAO::chercherAvecFiltre("WHERE nom LIKE '%AcheteurB%'"); 
+						echo "<ul>";
+						foreach ($tabAcheteurs as $unAcheteur) {
+							echo "<li>$unAcheteur</li>";
 						}
+						echo "</ul>";
 					?>
 				</td>
 			</tr>
@@ -56,7 +59,10 @@
 				<td>chercher tous</td>
 				<td>
 					<?php 
-
+						$tableau=AcheteurDAO::chercherTous();
+						foreach($tableau as $unAcheteur) {
+							echo $unAcheteur."<br/>";
+						}
 					?>
 				</td>
 			</tr>

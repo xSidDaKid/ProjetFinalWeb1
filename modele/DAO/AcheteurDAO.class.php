@@ -21,6 +21,7 @@ include_once(DOSSIER_BASE_INCLUDE."modele/DAO/DAO.interface.php");
 class AcheteurDAO implements DAO {	
 
 	public static function chercher($unNumero) { 
+			
 			// obtenir la connexion
 			try {
 				$connexion=ConnexionBD::getInstance();
@@ -37,9 +38,7 @@ class AcheteurDAO implements DAO {
 			if ($requete->rowCount()!=0) {
 				// ... et créer l’instance de l'Acheteur
 				$rangee=$requete->fetch();
-				$unAcheteur = new Acheteur($rangee['id_acheteur'], $rangee['nom'], $rangee['telephone'], $rangee['solde']);
-            
-				
+				$unAcheteur = new Acheteur($rangee['id_acheteur'], $rangee['nom'], $rangee['telephone'], $rangee['solde']);				
 			}
 			
 			// fermer le curseur de la requête et la connexion à la BD
@@ -49,7 +48,8 @@ class AcheteurDAO implements DAO {
 	}
 
 	public static function chercherTous() {
-		// obtenir la connexion
+			
+			// obtenir la connexion
 			try {
 				$connexion=ConnexionBD::getInstance();
 			} catch (Exception $e) {
@@ -66,10 +66,40 @@ class AcheteurDAO implements DAO {
 			// Analyser les enregistrements s'il y en a 
 			foreach ($requete as $rangee) {
 				$unAcheteur = new Acheteur($rangee['id_acheteur'], $rangee['nom'], $rangee['telephone'], $rangee['solde']);							
-				array_push($tableau,$unAcheteur);
+				array_push($tableau, $unAcheteur);
 			}
 			
 			// fermer les curseur de la requête et la connexion, puis retourner le tableau d'objets de type Candidat
+			$requete-> closeCursor();
+			ConnexionBD::close();	
+			return $tableau;
+	} 
+
+	public static function chercherAvecFiltre($clause){ 
+			
+			// obtenir la connexion
+			try {
+				$connexion=ConnexionBD::getInstance();
+			} catch (Exception $e) {
+				throw new Exception("Impossible d’obtenir la connexion à la BD."); 
+			}
+
+			// initialisation du tableau vide
+			$tableau=[];	
+			
+			// Préparer une requête de type PDOStatement avec des paramètres SQL	
+			$requete=$connexion->prepare("SELECT * FROM acheteur ".$clause);
+			
+			// Exécuter la requête
+			$requete->execute();
+			
+			// Analyser les enregistrements s'il y en a 
+			foreach ($requete as $rangee) {
+				$unAcheteur = new Acheteur($rangee['id_acheteur'], $rangee['nom'], $rangee['telephone'], $rangee['solde']);									
+				array_push($tableau, $unAcheteur);
+			}
+			
+			// fermer le curseur de la requête et la connexion à la BD
 			$requete-> closeCursor();
 			ConnexionBD::close();	
 			return $tableau;
