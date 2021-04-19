@@ -33,7 +33,11 @@
 				<td>chercher </td>
 				<td>
 					<?php 
-
+						$unAcheteur=AcheteurDAO::chercher(100);
+						echo $unAcheteur?$unAcheteur:"Pas trouvé";
+						echo "<br/>";
+						$unAcheteur=AcheteurDAO::chercher(101);
+						echo $unAcheteur?$unAcheteur:"Pas trouvé";
 					?>
 				</td>
 			</tr>
