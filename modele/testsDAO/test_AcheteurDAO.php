@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <!------------------------------------------------------------------>
 <!---- Projet  : H2021                                           --->
-<!---- Fichier de test unitaire pour la classe ...               ---> 
-<!---- Auteurs :                                     --->
+<!---- Fichier de test unitaire pour la classe Acheteur          ---> 
+<!---- Auteurs :  Kumaran Satkunanathan							 --->
+<!----        	  Louai Roueha							 		 --->
+<!----            Shajaan Balasingam                             --->
 <!------------------------------------------------------------------>
 <html lang="fr">
 <head>
@@ -13,7 +15,7 @@
 <body >
 
 	<!---- Création d'un accessoire ---->
-	<h1>Fichier de test pour la classe Utilisateur</h1>
+	<h1>Fichier de test pour la classe Acheteur</h1>
 	<?php
 		// ****** INLCUSIONS *******
 		// Importe l'interface DAO et la classe ZZZZDAO 
@@ -34,9 +36,6 @@
 				<td>chercher </td>
 				<td>
 					<?php 
-						$unAcheteur=AcheteurDAO::chercher(100);
-						echo $unAcheteur?$unAcheteur:"Pas trouvé";
-						echo "<br/>";
 						$unAcheteur=AcheteurDAO::chercher(101);
 						echo $unAcheteur?$unAcheteur:"Pas trouvé";
 					?>

@@ -24,7 +24,7 @@ class Billet {
     // Attributs
     private $numeroBillet;//int
     private $prixPaye;//float
-    private $idAcheteur;//int
+    private $idAcheteur = 0;//int
     private $evenement;//Cinema
 
     //Constructeur
