@@ -133,9 +133,9 @@ class AcheteurDAO implements DAO {
 			}
 			
 			// On prépare la commande update
-			$requete=$connexion->prepare("UPDATE acheteur SET id_acheteur=?,nom=?, telephone=?, solde=? WHERE id_acheteur=?");
+			$requete=$connexion->prepare("UPDATE acheteur SET nom=?, telephone=?, solde=? WHERE id_acheteur=?");
 
-			$tableauInfos=[$unAcheteur->getNom(),$unAcheteur->getTelephone(),$unAcheteur->getSolde(), $unAcheteur->getIdAcheteur()];
+			$tableauInfos=[$unAcheteur->getNom(), $unAcheteur->getTelephone(),$unAcheteur->getSolde(), $unAcheteur->getIdAcheteur()];
 
 			// On exécute la requête			   
 			$requete->execute($tableauInfos);		

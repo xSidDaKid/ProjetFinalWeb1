@@ -88,12 +88,15 @@
 				<td>modifier</td>
 				<td>
 					<?php 
-					echo "$unAcheteur";
-					/*AcheteurDAO::modifier($unID);
-						$unAcheteur->setTelephone(500);
-						AcheteurDAO::modifier($unID);
-						$unAcheteur=AcheteurDAO::chercher(999);
-						echo $unAcheteur?$unAcheteur:"Pas trouvé";*/
+					$unAcheteur=AcheteurDAO::chercher($unID);
+					
+					$unAcheteur->setTelephone(1200);
+					$unAcheteur->chargerSolde(50);
+					AcheteurDAO::modifier($unAcheteur);
+					
+					$unAcheteur=AcheteurDAO::chercher($unID);
+					echo $unAcheteur?$unAcheteur:"Pas trouvé";
+					
 					?>
 				</td>
 			</tr>
@@ -101,6 +104,11 @@
 				<td>supprimer</td>
 				<td>
 					<?php 
+						/*echo "<h3>On suprime un acheteur</h3>";
+						AcheteurDAO::supprimer($unID);
+						// Vérification
+						$unAcheteur=AcheteurDAO::chercher($unID); 
+						echo $unAcheteur?$unAcheteur:"Pas trouvé";*/
 
 					?>
 				</td>
@@ -109,7 +117,7 @@
 				<td>obtenirProchainId </td>
 				<td>
 					<?php 
-
+						
 					?>
 				</td>
 			</tr>
