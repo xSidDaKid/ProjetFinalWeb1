@@ -18,6 +18,7 @@
 		// ****** INLCUSIONS *******
 		// Importe l'interface DAO et la classe ZZZZDAO 
 		include_once "../DAO/AcheteurDAO.class.php"; 
+		include_once(DOSSIER_BASE_INCLUDE."modele/DAO/UtilisateurDAO.class.php");
 	?>
 
 	<!---- Utilisation et affichage des méthodes -->
@@ -74,19 +75,25 @@
 						$unID = UtilisateurDAO::obtenirProchainId();
 						$unUser = new Utilisateur ($unID, 'root', 'acheteur');
 						UtilisateurDAO::inserer($unUser);
-						echo "$unID";
+
 						$unAcheteur = new Acheteur($unID, 'AcheteurD', '5149998798', 1000);
-						$test=AcheteurDAO::inserer($unAcheteur); // va réussir la 1ere fois
-						echo "$test";
-						echo "<ul><li>Insertion #1".($test?" a réussie":" a échouée")."</li></ul>";
+						AcheteurDAO::inserer($unAcheteur); 
+						$unAcheteur = AcheteurDAO::chercher($unID);
+						echo $unAcheteur?$unAcheteur:"Pas trouvé";		
 					?>
+
 				</td>
 			</tr>
 			<tr>
 				<td>modifier</td>
 				<td>
 					<?php 
-
+					echo "$unAcheteur";
+					/*AcheteurDAO::modifier($unID);
+						$unAcheteur->setTelephone(500);
+						AcheteurDAO::modifier($unID);
+						$unAcheteur=AcheteurDAO::chercher(999);
+						echo $unAcheteur?$unAcheteur:"Pas trouvé";*/
 					?>
 				</td>
 			</tr>
