@@ -19,7 +19,7 @@ if (defined("DOSSIER_BASE_INCLUDE") == false) {
 }
 include_once(DOSSIER_BASE_INCLUDE."modele/Cinema.class.php"); 
 
-class InfosCinema extends Cinema {
+class InfosCinema{
     
     // Attributs
     private $codeInfos;//int

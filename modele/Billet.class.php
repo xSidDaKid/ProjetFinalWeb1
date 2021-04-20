@@ -19,7 +19,7 @@ if (defined("DOSSIER_BASE_INCLUDE") == false) {
 }
 include_once(DOSSIER_BASE_INCLUDE."modele/Cinema.class.php"); 
 
-class Billet {
+class Billet extends Cinema{
 	
     // Attributs
     private $numeroBillet;//int
@@ -28,10 +28,18 @@ class Billet {
     private $evenement;//Cinema
 
     //Constructeur
-    public function __construct($unNumero, $unPrix, $idAcheteur, $unEvenement) {
+  /*  public function __construct($unNumero, $unPrix, $idAcheteur, $unEvenement) {
         $this->numeroBillet = $unNumero;
         $this->prixPaye = $unPrix;
         $this->idAcheteur = $unIdAcheteur;//a verifier
+        $this->evenement = $unEvenement;
+    }*/
+
+    public function __construct($unNumero, $unPrix, $unEvenement) {
+        //parent::__construct();
+        $this->numeroBillet = $unNumero;
+        $this->prixPaye = $unPrix;
+        //$this->idAcheteur = $unIdAcheteur;//a verifier
         $this->evenement = $unEvenement;
     }
     

@@ -20,6 +20,7 @@
 		// ****** INLCUSIONS *******
 		// Importe l'interface DAO et la classe ZZZZDAO 
 		include_once "../DAO/BilletDAO.class.php"; 
+		include_once "../DAO/AcheteurDAO.class.php"; 
 	?>
 
 	<!---- Utilisation et affichage des méthodes -->
@@ -44,7 +45,13 @@
 				<td>chercher avec filtre</td>
 				<td>
 					<?php 
-
+						echo "<h3>On cherche tous les billets ayant le numéro du billet 104</h3>";
+						$tabBillets=BilletDAO::chercherAvecFiltre("WHERE numero_billet=104"); 
+						echo "<ul>";
+						foreach ($tabBillets as $unBillet) {
+							echo "<li>$unBillet</li>";
+						}
+						echo "</ul>";
 					?>
 				</td>
 			</tr>
@@ -52,7 +59,10 @@
 				<td>chercher tous</td>
 				<td>
 					<?php 
-
+						$tableau=BilletDAO::chercherTous();
+						foreach($tableau as $unBillet) {
+							echo $unBillet."<br/>";
+						}
 					?>
 				</td>
 			</tr>
@@ -60,7 +70,14 @@
 				<td>inserer</td>
 				<td>
 					<?php 
-
+						echo "<h3>On insère un billet MARCHE PAS</h3>";
+						/*$unID = BilletDAO::obtenirProchainNumero();
+						$unIDAcheteur = AcheteurDAO::obtenirProchainId();
+						echo "$unIDAcheteur";
+						$unBillet = new Billet($unID, 1000, 103,$unIDAcheteur);
+						BilletDAO::inserer($unBillet); 
+						$unBillet = BilletDAO::chercher($unID);
+						echo $unBillet?$unBillet:"Pas trouvé";	*/
 					?>
 				</td>
 			</tr>
@@ -68,7 +85,13 @@
 				<td>modifier</td>
 				<td>
 					<?php 
-
+						echo "<h3>On modifie le billet qu'on vient d'ajouter MARCHE PAS</h3>";
+						/*$unBillet=BilletDAO::chercher($unID);
+						
+						BilletDAO::modifier($unBillet);
+						
+						$unBillet=BilletDAO::chercher($unID);
+						echo $unBillet?$unBillet:"Pas trouvé";*/
 					?>
 				</td>
 			</tr>
@@ -76,15 +99,21 @@
 				<td>supprimer</td>
 				<td>
 					<?php 
+						echo "<h3>On supprime l'acheteur qu'on vient d'ajouter</h3>";
+						$unBillet=BilletDAO::chercher(BilletDAO::obtenirProchainNumero() - 1);
+						BilletDAO::supprimer($unBillet);
+						// Vérification
+						$unBillet=BilletDAO::chercher(105); 
+						echo $unBillet?$unBillet:"Pas trouvé";
 
 					?>
 				</td>
 			</tr>
 			<tr>
-				<td>obtenirProchainId </td>
+				<td>obtenirProchainNumero </td>
 				<td>
 					<?php 
-
+						echo BilletDAO::obtenirProchainNumero();
 					?>
 				</td>
 			</tr>
