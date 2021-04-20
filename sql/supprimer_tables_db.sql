@@ -25,3 +25,4 @@ DELETE FROM infos_Cinema;
 DROP TABLE infos_Cinema;
 
 DROP DATABASE cinema;
+#test
