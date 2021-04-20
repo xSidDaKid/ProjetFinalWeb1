@@ -88,6 +88,7 @@
 				<td>modifier</td>
 				<td>
 					<?php 
+					echo "<h3>On modifie l'acheteur qu'on vient d'ajouter</h3>";
 					$unAcheteur=AcheteurDAO::chercher($unID);
 					
 					$unAcheteur->setTelephone(1200);
@@ -104,11 +105,12 @@
 				<td>supprimer</td>
 				<td>
 					<?php 
-						/*echo "<h3>On suprime un acheteur</h3>";
-						AcheteurDAO::supprimer($unID);
+						echo "<h3>On supprime l'acheteur qu'on vient d'ajouter</h3>";
+						$unAcheteur=AcheteurDAO::chercher($unID);
+						AcheteurDAO::supprimer($unAcheteur);
 						// Vérification
 						$unAcheteur=AcheteurDAO::chercher($unID); 
-						echo $unAcheteur?$unAcheteur:"Pas trouvé";*/
+						echo $unAcheteur?$unAcheteur:"Pas trouvé";
 
 					?>
 				</td>
