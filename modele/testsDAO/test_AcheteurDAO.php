@@ -119,7 +119,7 @@
 				<td>obtenirProchainId </td>
 				<td>
 					<?php 
-						
+						echo AcheteurDAO::obtenirProchainId();
 					?>
 				</td>
 			</tr>

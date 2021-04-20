@@ -157,6 +157,30 @@ class AcheteurDAO implements DAO {
 			$tableauInfos=[$unAcheteur->getIdAcheteur()];
 			return $requete->execute($tableauInfos);
 	} 
+
+	// Retourne le prochain id disponible
+	public static function obtenirProchainId(){
+			try {
+				$connexion=ConnexionBD::getInstance();
+			} catch (Exception $e) {
+				throw new Exception("Impossible d’obtenir la connexion à la BD."); 
+			}
+
+			// On prépare la commande Delete
+			$commandeSQL = "SELECT id_acheteur FROM acheteur ORDER BY id_acheteur DESC";
+			$requete = $connexion->prepare($commandeSQL);
+			
+			// On l’exécute
+			$requete-> execute();
+			
+			// Valeur à retourner
+			$prochainId=1;
+			if ($requete->rowCount() > 0) {
+				$rangee=$requete->fetch();
+				$prochainId=$rangee['id_acheteur']+1;
+			}
+			return $prochainId;	
+	}
 }
 
 ?>
