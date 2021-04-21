@@ -42,16 +42,16 @@ class Cinema {
 
     // Accesseurs et mutateurs
 	public function getNumeroCinema() { return $this->numeroCinema; }
-    public function getLaDate() { return $this->$aDate; }
+    public function getLaDate() { return $this->laDate; }
     public function getPrixUnBillet() { return $this->prixUnBillet; }
     public function getPlaceTotales() { return $this->placesTotales; }
     public function getPlaceVendues() { return $this->placesVendues; }
     public function getInfos() { return $this->infos; }
 
-    public function setPrixUnBillet($valeur) { return $this->infos; }
-    public function setInfos($valeur) { return $this->infos; }
+    public function setPrixUnBillet($unPrix) { $this->prixUnBillet = $unPrix; }
+    public function setLaDate($uneDate) {  $this->laDate = $uneDate; }
 
     public function __toString() {
-        return $message = "Numero Cinéma: " .$this->numeroCinema. ", Date: " .$this->laDate. ", Prix d'un billet: " .$this->prixUnBillet. ", Places Totales: ".$this->placesTotales.", Places Vendues: ".$this->placesVendues."Info: ".$this->infos;
+        return $message = "Numero Cinéma: " .$this->numeroCinema. ", Date: " .$this->laDate. ", Prix d'un billet: " .$this->prixUnBillet. ", Places Totales: ".$this->placesTotales.", Places Vendues: ".$this->placesVendues.", Info: ".$this->infos;
     }
 }
