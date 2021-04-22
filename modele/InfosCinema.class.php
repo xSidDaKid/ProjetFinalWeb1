@@ -21,6 +21,8 @@ include_once(DOSSIER_BASE_INCLUDE."modele/Cinema.class.php");
 
 class InfosCinema{
     
+    //TODO: Ajoutez au moins un attribut avec ses accesseur/mutateur.
+
     // Attributs
     private $codeInfos;//int
     private $titre;//String

@@ -24,7 +24,7 @@ class Billet extends Cinema{
     // Attributs
     private $numeroBillet;//int
     private $prixPaye;//float
-    private $idAcheteur = 0;//int
+    private $idAcheteur;//int
     private $evenement;//Cinema
 
     //Constructeur

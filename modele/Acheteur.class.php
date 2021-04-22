@@ -18,33 +18,40 @@ if (defined("DOSSIER_BASE_INCLUDE") == false) {
 }
 include_once(DOSSIER_BASE_INCLUDE."modele/Billet.class.php"); 
 
-class Acheteur {
+class Acheteur extends Billet{
     // Attributs
     private $idAcheteur;//int
     private $nom;//String
     private $telephone;//String
     private $solde;//Float
-    private $lesBillets = [];//Array <Billet>
+    private $lesBillets;//Array <Billet>
 
     //Constructeur
     public function __construct($unId, $unNom, $unTelephone, $unSolde){
+        //parent::__construct($unNumero, $unPrix, $unEvenement);
         $this->idAcheteur = $unId;
         $this->nom = $unNom;
         $this->telephone = $unTelephone;
         $this->solde = $unSolde;
+        $this->lesBillets = [];
     }
 
     public function getIdAcheteur() { return $this->idAcheteur; }
     public function getNom() { return $this->nom; }
     public function getTelephone() { return $this->telephone; }
     public function getSolde() { return $this->solde; }
-    public function getLesBillets() { return $this->lesBillets; }
+    public function getLesBillets() {
+        foreach ($this->lesBillets as $tab) {
+            return $tab; 
+        }
+    }
     
     public function setTelephone($unTelephone) { $this->telephone = $unTelephone; }
 
+    //Methodes speciales
     public function ajouterBillet($nouveauBillet){
-        array_push ($lesBillets, $nouveauBillet);
-
+        $lesBillets = [];
+        array_push ($lesBillets, $nouveauBillet);//TODO: MARCHE PAS
     }
 
     public function chargerSolde($montant){
@@ -57,9 +64,9 @@ class Acheteur {
 
     public function __toString() {
        $message = "[#" .$this->idAcheteur. "] ".$this->nom.", Telephone: " .$this->telephone. ", Solde: " .$this->solde;
-      /* foreach ($lesBillets as $unBillet) {
+     /*foreach ($lesBillets as $unBillet) {
 			echo "Billet: " .$unBillet;
-		}  */ //$lesBillets n'est pas initialiser
+		}   //$lesBillets n'est pas initialiser*/
         return $message;
     }
 }

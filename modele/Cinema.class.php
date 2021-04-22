@@ -19,7 +19,7 @@ if (defined("DOSSIER_BASE_INCLUDE") == false) {
 }
 include_once(DOSSIER_BASE_INCLUDE."modele/InfosCinema.class.php"); 
 
-class Cinema {
+class Cinema extends InfosCinema{
 
     // Attributs
     private $numeroCinema;//int
@@ -50,6 +50,16 @@ class Cinema {
 
     public function setPrixUnBillet($unPrix) { $this->prixUnBillet = $unPrix; }
     public function setLaDate($uneDate) {  $this->laDate = $uneDate; }
+
+    //Methodes spéciales
+    public function calculerPlacesDisponibles() {
+        //TODO
+        return $placesDiponible = $this->placesTotales-$this->placesVendues;
+    }
+
+    public function vendreDesPlaces($nombrePlaces) {
+        return $this->placesVendues + $nombrePlaces;
+    }
 
     public function __toString() {
         return $message = "Numero Cinéma: " .$this->numeroCinema. ", Date: " .$this->laDate. ", Prix d'un billet: " .$this->prixUnBillet. ", Places Totales: ".$this->placesTotales.", Places Vendues: ".$this->placesVendues.", Info: ".$this->infos;
