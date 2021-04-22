@@ -107,6 +107,36 @@ class CinemaDAO implements DAO {
 			return $tableau;
 	}
 
+	public static function chercherParCodeInfos($unCode) { 
+
+			// obtenir la connexion
+			try {
+				$connexion=ConnexionBD::getInstance();
+			} catch (Exception $e) {
+				throw new Exception("Impossible d’obtenir la connexion à la BD."); 
+			}
+
+			// initialisation du tableau vide
+			$tableau=[];	
+			
+			// Préparer une requête de type PDOStatement avec des paramètres SQL	
+			$requete=$connexion->prepare("SELECT * FROM tab_cinema WHERE code_infos=?");
+			
+			// Exécuter la requête
+			$requete->execute(array($unCode));
+			
+			// Analyser les enregistrements s'il y en a 
+			foreach ($requete as $rangee) {
+				$unCinema = new Cinema($rangee['numero_Cinema'], $rangee['la_date'], $rangee['prix_un_billet'], $rangee['places_totales'], $rangee['places_vendues'], $rangee['code_infos']);
+				array_push($tableau, $unCinema);
+			}
+			
+			// fermer le curseur de la requête et la connexion à la BD
+			$requete-> closeCursor();
+			ConnexionBD::close();	
+			return $tableau;
+	}
+
 	public static function inserer($unCinema) { 
 
 			// obtenir la connexion

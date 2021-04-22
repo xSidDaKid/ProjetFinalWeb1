@@ -57,6 +57,21 @@
 				</td>
 			</tr>
 			<tr>
+				<td>chercher par codeInfos</td>
+				<td>
+					<?php 
+						echo "<h3>On fait une recherche par code infos</h3>";
+						$tabCinema=CinemaDAO::chercherParCodeInfos("19"); 
+						echo "<ul>";
+
+						foreach ($tabCinema as $unCinema) {
+							echo "<li>$unCinema</li>";
+						}
+						echo "</ul>";
+					?>
+				</td>
+			</tr>
+			<tr>
 				<td>chercher tous</td>
 				<td>
 					<?php 
