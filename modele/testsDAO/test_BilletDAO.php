@@ -71,13 +71,13 @@
 				<td>
 					<?php 
 						echo "<h3>On insère un billet MARCHE PAS</h3>";
-						/*$unID = BilletDAO::obtenirProchainNumero();
+						$unID = BilletDAO::obtenirProchainNumero();
 						$unIDAcheteur = AcheteurDAO::obtenirProchainId();
 						echo "$unIDAcheteur";
 						$unBillet = new Billet($unID, 1000, 103,$unIDAcheteur);
 						BilletDAO::inserer($unBillet); 
 						$unBillet = BilletDAO::chercher($unID);
-						echo $unBillet?$unBillet:"Pas trouvé";	*/
+						echo $unBillet?$unBillet:"Pas trouvé";
 					?>
 				</td>
 			</tr>
@@ -86,12 +86,10 @@
 				<td>
 					<?php 
 						echo "<h3>On modifie le billet qu'on vient d'ajouter MARCHE PAS</h3>";
-						/*$unBillet=BilletDAO::chercher($unID);
-						
-						BilletDAO::modifier($unBillet);
-						
 						$unBillet=BilletDAO::chercher($unID);
-						echo $unBillet?$unBillet:"Pas trouvé";*/
+						BilletDAO::modifier($unBillet);
+						$unBillet=BilletDAO::chercher($unID);
+						echo $unBillet?$unBillet:"Pas trouvé";
 					?>
 				</td>
 			</tr>
