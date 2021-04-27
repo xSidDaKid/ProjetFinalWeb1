@@ -41,7 +41,7 @@ class BilletDAO implements DAO {
 				// ... et créer l’instance de l'Acheteur
 				$rangee=$requete->fetch();
 				//$unBillet = new Billet($rangee['numero_billet'], $rangee['prix_paye'], $rangee['numero_Cinema'], $rangee['id_acheteur']);
-				$unBillet = new Billet($rangee['numero_billet'], $rangee['prix_paye'], $rangee['numero_Cinema']);				
+				$unBillet = new Billet($rangee['numero_billet'], $rangee['prix_paye'], $rangee['numero_Cinema'], $rangee['id_acheteur']);				
 			}
 			
 			// fermer le curseur de la requête et la connexion à la BD
@@ -67,8 +67,7 @@ class BilletDAO implements DAO {
 
 			// Analyser les enregistrements s'il y en a 
 			foreach ($requete as $rangee) {
-				//$unBillet = new Billet($rangee['numero_billet'], $rangee['prix_paye'], $rangee['numero_Cinema'], $rangee['id_acheteur']);
-				$unBillet =  new Billet($rangee['numero_billet'], $rangee['prix_paye'], $rangee['numero_Cinema']);							
+				$unBillet =  new Billet($rangee['numero_billet'], $rangee['prix_paye'], $rangee['id_acheteur'], $rangee['numero_Cinema']);							
 				array_push($tableau, $unBillet);
 			}
 			
@@ -99,7 +98,7 @@ class BilletDAO implements DAO {
 			// Analyser les enregistrements s'il y en a 
 			foreach ($requete as $rangee) {
 				//$unBillet = new Billet($rangee['numero_billet'], $rangee['prix_paye'], $rangee['numero_Cinema'], $rangee['id_acheteur']);
-				$unBillet = new Billet($rangee['numero_billet'], $rangee['prix_paye'], $rangee['numero_Cinema']);									
+				$unBillet = new Billet($rangee['numero_billet'], $rangee['prix_paye'], $rangee['numero_Cinema'], $rangee['id_acheteur']);									
 				array_push($tableau, $unBillet);
 			}
 			
@@ -119,9 +118,7 @@ class BilletDAO implements DAO {
 			}
 
 			// On prépare la commande insert
-			//$unBillet = new Billet($rangee['numero_billet'], $rangee['prix_paye'], $rangee['numero_Cinema'], $rangee['id_acheteur']);
-			//$requete=$connexion->prepare("INSERT INTO acheteur (numero_billet,prix_paye,numero_Cinema, id_acheteur) VALUES (?,?,?,?)");
-			$requete=$connexion->prepare("INSERT INTO acheteur (numero_billet,prix_paye,numero_Cinema,id_acheteur) VALUES (?,?,?,?)");
+			$requete=$connexion->prepare("INSERT INTO billet (numero_billet,prix_paye,numero_Cinema,id_acheteur) VALUES (?,?,?,?)");
 
 			// On l’exécute, et on retourne l’état de réussite (true/false)
 			$tableauInfos=[$unBillet->getNumeroBillet(),$unBillet->getPrixPaye(), $unBillet->getNumeroCinema(),$unBillet->getIdAcheteur()];

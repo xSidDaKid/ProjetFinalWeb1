@@ -45,8 +45,8 @@
 				<td>chercher avec filtre</td>
 				<td>
 					<?php 
-						echo "<h3>On cherche tous les billets ayant le numéro du billet 104</h3>";
-						$tabBillets=BilletDAO::chercherAvecFiltre("WHERE numero_billet=104"); 
+						echo "<h3>On cherche tous les billets ayant le numéro du billet 100</h3>";
+						$tabBillets=BilletDAO::chercherAvecFiltre("WHERE numero_billet=100"); 
 						echo "<ul>";
 						foreach ($tabBillets as $unBillet) {
 							echo "<li>$unBillet</li>";
@@ -70,13 +70,17 @@
 				<td>inserer</td>
 				<td>
 					<?php 
-						echo "<h3>On insère un billet MARCHE PAS</h3>";
+						echo "<h3>TODO On insère un billet</h3>";
 						$unID = BilletDAO::obtenirProchainNumero();
-						$unIDAcheteur = AcheteurDAO::obtenirProchainId();
-						echo "$unIDAcheteur";
-						$unBillet = new Billet($unID, 1000, 103,$unIDAcheteur);
+						$unIDAcheteur = AcheteurDAO::chercher(100);
+						
+						
+						$unBillet = new Billet($unID, 1000, $unIDAcheteur->getIdAcheteur(), 100);
+						echo "$unBillet";
 						BilletDAO::inserer($unBillet); 
+
 						$unBillet = BilletDAO::chercher($unID);
+						echo "<br />";
 						echo $unBillet?$unBillet:"Pas trouvé";
 					?>
 				</td>
@@ -85,11 +89,7 @@
 				<td>modifier</td>
 				<td>
 					<?php 
-						echo "<h3>On modifie le billet qu'on vient d'ajouter MARCHE PAS</h3>";
-						$unBillet=BilletDAO::chercher($unID);
-						BilletDAO::modifier($unBillet);
-						$unBillet=BilletDAO::chercher($unID);
-						echo $unBillet?$unBillet:"Pas trouvé";
+						echo "<h3>Impossible de modifier un billet</h3>";
 					?>
 				</td>
 			</tr>
@@ -97,12 +97,12 @@
 				<td>supprimer</td>
 				<td>
 					<?php 
-						echo "<h3>On supprime l'acheteur qu'on vient d'ajouter</h3>";
-						$unBillet=BilletDAO::chercher(BilletDAO::obtenirProchainNumero() - 1);
+						echo "<h3>TODO On supprime l'acheteur qu'on vient d'ajouter RIEN POUR L'INSTANT</h3>";
+						/*$unBillet=BilletDAO::chercher(BilletDAO::obtenirProchainNumero() - 1);
 						BilletDAO::supprimer($unBillet);
 						// Vérification
 						$unBillet=BilletDAO::chercher(105); 
-						echo $unBillet?$unBillet:"Pas trouvé";
+						echo $unBillet?$unBillet:"Pas trouvé";*/
 
 					?>
 				</td>

@@ -43,7 +43,7 @@ class Billet extends Cinema{
 
     //toString
     public function __toString() {
-        return $message = "[#" .$this->idAcheteur. "] Numéro du Billet: " .$this->numeroBillet. ", Prix payée: " .$this->prixPaye. ", Id Acheteur: ".$this->idAcheteur. ", Événement: ".$this->evenement;
+        return $message = "Numéro du Billet: " .$this->numeroBillet. ", Prix payée: " .$this->prixPaye. ", Id Acheteur: ".$this->idAcheteur. ", Numéro Cinéma: ".$this->evenement;
     }
 }
 ?>
