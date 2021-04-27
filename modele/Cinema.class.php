@@ -46,7 +46,7 @@ class Cinema extends InfosCinema{
     public function getPrixUnBillet() { return $this->prixUnBillet; }
     public function getPlaceTotales() { return $this->placesTotales; }
     public function getPlaceVendues() { return $this->placesVendues; }
-    public function getInfos() { return $this->infos; }
+    public function getInfos() { return parent::__toString(); }
 
     public function setPrixUnBillet($unPrix) { $this->prixUnBillet = $unPrix; }
     public function setLaDate($uneDate) {  $this->laDate = $uneDate; }
@@ -58,7 +58,7 @@ class Cinema extends InfosCinema{
     }
 
     public function vendreDesPlaces($nombrePlaces) {
-        return $this->placesVendues + $nombrePlaces;
+        $this->placesVendues += $nombrePlaces;
     }
 
     public function __toString() {

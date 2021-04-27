@@ -28,18 +28,10 @@ class Billet extends Cinema{
     private $evenement;//Cinema
 
     //Constructeur
-  /*  public function __construct($unNumero, $unPrix, $idAcheteur, $unEvenement) {
+    public function __construct($unNumero, $unPrix, $unIdAcheteur, $unEvenement) {
         $this->numeroBillet = $unNumero;
         $this->prixPaye = $unPrix;
         $this->idAcheteur = $unIdAcheteur;//a verifier
-        $this->evenement = $unEvenement;
-    }*/
-
-    public function __construct($unNumero, $unPrix, $unEvenement) {
-        //parent::__construct();
-        $this->numeroBillet = $unNumero;
-        $this->prixPaye = $unPrix;
-        //$this->idAcheteur = $unIdAcheteur;//a verifier
         $this->evenement = $unEvenement;
     }
     
@@ -51,7 +43,7 @@ class Billet extends Cinema{
 
     //toString
     public function __toString() {
-        return $message = "[#" .$this->idAcheteur. "] Numéro du Billet: " .$this->numeroBillet. ", Prix payée: " .$this->prixPaye. ", Événement: ".$this->evenement;
+        return $message = "[#" .$this->idAcheteur. "] Numéro du Billet: " .$this->numeroBillet. ", Prix payée: " .$this->prixPaye. ", Id Acheteur: ".$this->idAcheteur. ", Événement: ".$this->evenement;
     }
 }
 ?>

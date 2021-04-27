@@ -9,18 +9,18 @@
 
 <html lang="fr">
 <head>
-	<title>Tests classes Projet</title>
+	<title>Tests classe InfosCinema</title>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" type="text/css" href="../../css/tests.css">
 </head>
 <body >
 
 	<!---- Création d'un accessoire ---->
-	<h1>Fichier de test pour la classe Utilisateur</h1>
+	<h1>Fichier de test pour la classe InfosCinema</h1>
 	<?php
 		// ****** INLCUSIONS *******
 		// Importe l'interface DAO et la classe ZZZZ 
-		//include_once "../ZZZZ.class.php"; 
+		include_once "../InfosCinema.class.php"; 
 	?>
 
 	<!---- Utilisation et affichage des méthodes -->
@@ -36,16 +36,33 @@
 				<td>Constructeur et affichage </td>
 				<td>
 					<?php 
-
+						$unInfo = new InfosCinema(200, "Film", "img.png");
+						echo "$unInfo";
 					?>
 				</td>
 			</tr>
 			<!-- copiez-collez cette section pour chaque groupe de méthode à tester -->
 			<tr>
-				<td>... </td>
+				<td>Accesseurs</td>
 				<td>
 					<?php 
-
+						echo $unInfo->getCodeInfos()?"Bon":"Pas bon";
+						echo "<br/>";
+						echo $unInfo->getTitre()?"Bon":"Pas bon";
+						echo "<br/>";
+						echo $unInfo->getUrlPhoto()?"Bon":"Pas bon";
+					?>
+				</td>
+			</tr>
+			<tr>
+				<td>Mutateurs</td>
+				<td>
+					<?php 
+						echo $unInfo->setTitre("Info Film");
+						echo $unInfo->getTitre();
+						echo "<br/>";
+						echo $unInfo->setUrlPhoto("www");
+						echo $unInfo->getUrlPhoto();
 					?>
 				</td>
 			</tr>

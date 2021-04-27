@@ -40,8 +40,8 @@ class InfosCinema{
     public function getTitre() { return $this->titre; }
     public function getUrlPhoto() { return $this->urlPhoto; }
 
-    public function setTitre() { $this->titre = $unTitre; }
-    public function setUrlPhoto($valeur) { $this->urlPhoto = $unUrl; }
+    public function setTitre($unTitre) { $this->titre = $unTitre; }
+    public function setUrlPhoto($unUrl) { $this->urlPhoto = $unUrl; }
 
     //toString
     public function __toString() {

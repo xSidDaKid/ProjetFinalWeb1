@@ -9,18 +9,19 @@
 
 <html lang="fr">
 <head>
-	<title>Tests classes Projet</title>
+	<title>Tests classe Billet</title>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" type="text/css" href="../../css/tests.css">
 </head>
 <body >
 
 	<!---- Création d'un accessoire ---->
-	<h1>Fichier de test pour la classe Utilisateur</h1>
+	<h1>Fichier de test pour la classe Billet</h1>
 	<?php
 		// ****** INLCUSIONS *******
 		// Importe l'interface DAO et la classe ZZZZ 
-		//include_once "../ZZZZ.class.php"; 
+		include_once "../Billet.class.php";
+		include_once "../Acheteur.class.php"; 
 	?>
 
 	<!---- Utilisation et affichage des méthodes -->
@@ -36,16 +37,24 @@
 				<td>Constructeur et affichage </td>
 				<td>
 					<?php 
-
+						$unAcheteur = new Acheteur(100, "Bob", "911", 500);
+						$unBillet = new Billet(44, 100, $unAcheteur->getIdAcheteur(), "");
+						echo "$unBillet";
 					?>
 				</td>
 			</tr>
 			<!-- copiez-collez cette section pour chaque groupe de méthode à tester -->
 			<tr>
-				<td>... </td>
+				<td> Accesseurs </td>
 				<td>
 					<?php 
-
+						echo $unBillet->getNumeroBillet()?"Bon":"Pas bon";
+						echo "<br/>";
+						echo $unBillet->getPrixPaye()?"Bon":"Pas bon";
+						echo "<br/>";
+						echo $unBillet->getIdAcheteur()?"Bon":"Pas bon";
+						echo "<br/>";
+						echo $unBillet->getEvenement()?"Bon":"Pas bon";
 					?>
 				</td>
 			</tr>

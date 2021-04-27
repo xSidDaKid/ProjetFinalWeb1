@@ -6,7 +6,7 @@
 <!------------------------------------------------------------------>
 <html lang="fr">
 <head>
-	<title>Labo5 test</title>
+	<title>Tests classe Utilisateur</title>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" type="text/css" href="../../css/tests.css">
 </head>

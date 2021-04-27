@@ -40,18 +40,13 @@ class Acheteur extends Billet{
     public function getNom() { return $this->nom; }
     public function getTelephone() { return $this->telephone; }
     public function getSolde() { return $this->solde; }
-    public function getLesBillets() {
-        foreach ($this->lesBillets as $tab) {
-            return $tab; 
-        }
-    }
+    public function getLesBillets() { return $this->lesBillets; }
     
     public function setTelephone($unTelephone) { $this->telephone = $unTelephone; }
 
     //Methodes speciales
     public function ajouterBillet($nouveauBillet){
-        $lesBillets = [];
-        array_push ($lesBillets, $nouveauBillet);//TODO: MARCHE PAS
+        array_push ($this->lesBillets, $nouveauBillet);
     }
 
     public function chargerSolde($montant){

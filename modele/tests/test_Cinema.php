@@ -6,21 +6,20 @@
 <!----               Louai Roueha								 --->
 <!----               Shajaan Balasingam                          --->
 <!------------------------------------------------------------------>
+
 <html lang="fr">
 <head>
-	<title>Tests Classe Acheteur</title>
+	<title>Tests classe Cinema</title>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" type="text/css" href="../../css/tests.css">
 </head>
 <body >
 
 	<!---- Création d'un accessoire ---->
-	<h1>Fichier de test pour la classe Acheteur</h1>
+	<h1>Fichier de test pour la classe Cinema</h1>
 	<?php
 		// ****** INLCUSIONS *******
-		// Importe l'interface DAO et la classe Acheteur 
-		include_once "../Acheteur.class.php"; 
-		include_once "../Billet.class.php"; 
+		// Importe l'interface DAO et la classe ZZZZ 
 		include_once "../Cinema.class.php"; 
 	?>
 
@@ -37,8 +36,8 @@
 				<td>Constructeur et affichage </td>
 				<td>
 					<?php 
-						$unAchteur = new Acheteur(100, "Bob", "911", 500);
-						echo "$unAchteur";
+						$unCinema = new Cinema (04, "2021-04-11", 200, 100, 1, "");
+						echo "$unCinema";
 					?>
 				</td>
 			</tr>
@@ -47,19 +46,17 @@
 				<td>Accesseurs</td>
 				<td>
 					<?php 
-						
-						echo $unAchteur->getIdAcheteur()?"Bon":"Pas bon";
+						echo $unCinema->getNumeroCinema()?"Bon":"Pas bon";
 						echo "<br/>";
-						echo $unAchteur->getNom()?"Bon":"Pas bon";
+						echo $unCinema->getLaDate()?"Bon":"Pas bon";
 						echo "<br/>";
-						echo $unAchteur->getTelephone()?"Bon":"Pas bon";
+						echo $unCinema->getPrixUnBillet()?"Bon":"Pas bon";
 						echo "<br/>";
-						echo $unAchteur->getSolde()?"Bon":"Pas bon";
+						echo $unCinema->getPlaceTotales()?"Bon":"Pas bon";
 						echo "<br/>";
-						foreach ($unAchteur->getLesBillets() as $tab) {
-							echo $tab;
-						}
-						//echo $unAchteur->getLesBillets();
+						echo $unCinema->getPlaceVendues()?"Bon":"Pas bon";
+						echo "<br/>";
+						echo $unCinema->getInfos()?"Bon":"Pas bon";
 					?>
 				</td>
 			</tr>
@@ -67,39 +64,29 @@
 				<td>Mutateurs</td>
 				<td>
 					<?php 
-						$unAchteur->setTelephone("123");
-						echo $unAchteur->getTelephone();
+						$unCinema->setPrixUnBillet(500);
+						echo $unCinema->getPrixUnBillet();
+						echo "<br/>";
+						$unCinema->setLaDate("2121-04-11");
+						echo $unCinema->getLaDate();
+						echo "<br/>";
 					?>
 				</td>
 			</tr>
 			<tr>
-				<td>Méthode ajouterBillet</td>
+				<td>Méthode calculerPlacesDisponibles()</td>
 				<td>
-					<?php
-						$unBillet = new Billet(12,123,$unAchteur->getIdAcheteur(),"");
-						
-						$unAchteur->ajouterBillet($unBillet);
-						foreach ($unAchteur->getLesBillets() as $tab1) {
-							echo "$tab1";
-						}
+					<?php 
+						echo $unCinema->calculerPlacesDisponibles();
 					?>
 				</td>
 			</tr>
 			<tr>
-				<td>Méthode chargerSolde</td>
+				<td>Méthode vendreDesPlaces()</td>
 				<td>
-					<?php
-						$unAchteur->chargerSolde(1000);
-						echo $unAchteur->getSolde();
-					?>
-				</td>
-			</tr>
-			<tr>
-				<td>Méthode payerSolde</td>
-				<td>
-					<?php
-						$unAchteur->payerSolde(1000);
-						echo $unAchteur->getSolde();
+					<?php 
+						$unCinema->vendreDesPlaces(4);
+						echo $unCinema->getPlaceVendues()
 					?>
 				</td>
 			</tr>

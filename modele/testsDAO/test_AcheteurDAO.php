@@ -92,6 +92,7 @@
 					
 					$unAcheteur->setTelephone(1200);
 					$unAcheteur->chargerSolde(50);
+					$unAcheteur->payerSolde(5);
 					AcheteurDAO::modifier($unAcheteur);
 					
 					$unAcheteur=AcheteurDAO::chercher($unID);
@@ -110,7 +111,7 @@
 						// Vérification
 						$unAcheteur=AcheteurDAO::chercher($unID); 
 						echo $unAcheteur?$unAcheteur:"Pas trouvé";
-
+		
 					?>
 				</td>
 			</tr>
