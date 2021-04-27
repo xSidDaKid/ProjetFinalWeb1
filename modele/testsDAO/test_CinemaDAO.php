@@ -20,6 +20,7 @@
 		// ****** INLCUSIONS *******
 		// Importe l'interface DAO et la classe ZZZZDAO 
 		include_once "../DAO/CinemaDAO.class.php"; 
+		include_once "../DAO/InfosCinemaDAO.class.php"; 
 	?>
 
 	<!---- Utilisation et affichage des méthodes -->
@@ -90,13 +91,12 @@
 						
 						//numero_Cinema
 						$unID = CinemaDAO::obtenirProchainNumero();
-
-						//la_date
-						$date = $unCinema->setLaDate("2021-04-05");
+						$unCodeInfo = InfosCinemaDAO::chercher(19);
 
 						//le Cinema
-						$unCinema = new Cinema($unID, $date, 500, 1000, 1, 0020);
-
+						//($unNumero, $uneDate, $unPrix, $placesTotales, $placesVendues, $codeInfos)
+						$unCinema = new Cinema($unID, "2021-04-05", 500, 100, 10, $unCodeInfo->getCodeInfos());
+						
 						CinemaDAO::inserer($unCinema); 
 
 						$unCinema = CinemaDAO::chercher($unID);

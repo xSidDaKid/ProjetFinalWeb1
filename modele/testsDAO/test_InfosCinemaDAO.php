@@ -19,7 +19,7 @@
 	<?php
 		// ****** INLCUSIONS *******
 		// Importe l'interface DAO et la classe ZZZZDAO 
-		//include_once "../DAO/ZZZZDAO.class.php"; 
+		include_once "../DAO/InfosCinemaDAO.class.php"; 
 	?>
 
 	<!---- Utilisation et affichage des méthodes -->
@@ -35,7 +35,8 @@
 				<td>chercher </td>
 				<td>
 					<?php 
-
+						$unInfo=InfosCinemaDAO::chercher(19);
+						echo $unInfo?$unInfo:"Pas trouvé";
 					?>
 				</td>
 			</tr>
@@ -83,7 +84,7 @@
 				<td>obtenirProchainId </td>
 				<td>
 					<?php 
-
+						echo InfosCinemaDAO::obtenirProchainId();
 					?>
 				</td>
 			</tr>

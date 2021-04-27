@@ -18,6 +18,7 @@ if (defined("DOSSIER_BASE_INCLUDE") == false) {
 	define("DOSSIER_BASE_INCLUDE", $chemin."projet_h2021_g16/");
 }
 include_once(DOSSIER_BASE_INCLUDE."modele/Cinema.class.php"); 
+include_once(DOSSIER_BASE_INCLUDE."modele/InfosCinema.class.php"); 
 include_once(DOSSIER_BASE_INCLUDE."modele/DAO/DAO.interface.php");
 
 class CinemaDAO implements DAO {
