@@ -49,15 +49,117 @@ class InfosCinemaDAO implements DAO {
 	}
 
 	public static function chercherAvecFiltre($clause){ 
+
+			// obtenir la connexion
+			try {
+				$connexion=ConnexionBD::getInstance();
+			} catch (Exception $e) {
+				throw new Exception("Impossible d’obtenir la connexion à la BD."); 
+			}
+
+			// initialisation du tableau vide
+			$tableau=[];	
+			
+			// Préparer une requête de type PDOStatement avec des paramètres SQL	
+			$requete=$connexion->prepare("SELECT * FROM infos_cinema ".$clause);
+			
+			// Exécuter la requête
+			$requete->execute();
+			
+			// Analyser les enregistrements s'il y en a 
+			foreach ($requete as $rangee) {
+				$unInfo = new InfosCinema($rangee['code_infos'], $rangee['titre'], $rangee['url_photo']);								
+				array_push($tableau, $unInfo);
+			}
+			
+			// fermer le curseur de la requête et la connexion à la BD
+			$requete-> closeCursor();
+			ConnexionBD::close();	
+			return $tableau;
 	}
 
 	public static function chercherTous() {
 
+			// obtenir la connexion
+			try {
+				$connexion=ConnexionBD::getInstance();
+			} catch (Exception $e) {
+				throw new Exception("Impossible d’obtenir la connexion à la BD."); 
+			}
+
+			// initialisation du tableau à retourner
+			$tableau=[];	
+
+			// Préparer une requête de type PDOStatement avec des paramètres SQL et l'exécuter	
+			$requete=$connexion->prepare("SELECT * FROM infos_cinema");
+			$requete->execute();
+
+			// Analyser les enregistrements s'il y en a 
+			foreach ($requete as $rangee) {
+				$unInfo = new InfosCinema($rangee['code_infos'], $rangee['titre'], $rangee['url_photo']);					
+				array_push($tableau, $unInfo);
+			}
+			
+			// fermer les curseur de la requête et la connexion, puis retourner le tableau d'objets de type Candidat
+			$requete-> closeCursor();
+			ConnexionBD::close();	
+			return $tableau;
+
 	}
 
-	public static function inserer($unInfo){}
-	public static function modifier($unInfo){}
-	public static function supprimer($unInfo){}
+	public static function inserer($unInfo){
+
+			// obtenir la connexion
+			try {
+				$connexion=ConnexionBD::getInstance();
+			} catch (Exception $e) {
+				throw new Exception("Impossible d’obtenir la connexion à la BD."); 
+			}
+
+			// On prépare la commande insert
+			$requete=$connexion->prepare("INSERT INTO infos_cinema (code_infos,titre,url_photo) VALUES (?,?,?)");
+
+			// On l’exécute, et on retourne l’état de réussite (true/false)
+			$tableauInfos=[$unInfo->getCodeInfos(),$unInfo->getTitre(),$unInfo->getUrlPhoto()];
+
+			return $requete->execute($tableauInfos);
+	}
+
+	public static function modifier($unInfo){
+
+			// obtenir la connexion
+			try {
+				$connexion=ConnexionBD::getInstance();
+			} catch (Exception $e) {
+				throw new Exception("Impossible d’obtenir la connexion à la BD."); 
+			}
+			
+			// On prépare la commande update
+			$requete=$connexion->prepare("UPDATE infos_cinema SET titre=?, url_photo=? WHERE code_infos=?");
+
+			$tableauInfos=[$unInfo->getTitre(), $unInfo->getUrlPhoto(), $unInfo->getCodeInfos()];
+
+			// On exécute la requête			   
+			$requete->execute($tableauInfos);
+	}
+
+	public static function supprimer($unInfo){
+		
+			// obtenir la connexion
+			try {
+				$connexion=ConnexionBD::getInstance();
+			} catch (Exception $e) {
+				throw new Exception("Impossible d’obtenir la connexion à la BD."); 
+			}
+
+			// On prépare la commande insert
+			$requete=$connexion->prepare("DELETE FROM infos_cinema WHERE code_infos=?");
+			
+			// On l’exécute, et on retourne l’état de réussite (true/false)
+			$tableauInfos=[$unInfo->getCodeInfos()];
+			return $requete->execute($tableauInfos);
+	}
+
 	public static function obtenirProchainId(){
 		try {
 				$connexion=ConnexionBD::getInstance();

@@ -44,7 +44,13 @@
 				<td>chercher avec filtre</td>
 				<td>
 					<?php 
-
+						echo "<h3>On cherche tous les infos ayant le code 19</h3>";
+						$tabAcheteurs=InfosCinemaDAO::chercherAvecFiltre("WHERE code_infos=19"); 
+						echo "<ul>";
+						foreach ($tabAcheteurs as $unInfo) {
+							echo "<li>$unInfo</li>";
+						}
+						echo "</ul>";
 					?>
 				</td>
 			</tr>
@@ -52,7 +58,10 @@
 				<td>chercher tous</td>
 				<td>
 					<?php 
-
+						$tableau=InfosCinemaDAO::chercherTous();
+						foreach($tableau as $unInfo) {
+							echo $unInfo."<br/>";
+						}
 					?>
 				</td>
 			</tr>
@@ -60,7 +69,14 @@
 				<td>inserer</td>
 				<td>
 					<?php 
+						echo "<h3>On insère un info du cinema</h3>";
 
+						$unID = InfosCinemaDAO::obtenirProchainId();
+
+						$unInfo = new InfosCinema($unID, 'Cineplex', 'photo4.png');
+						InfosCinemaDAO::inserer($unInfo); 
+						$unInfo = InfosCinemaDAO::chercher($unID);
+						echo $unInfo?$unInfo:"Pas trouvé";	
 					?>
 				</td>
 			</tr>
@@ -68,7 +84,15 @@
 				<td>modifier</td>
 				<td>
 					<?php 
-
+					echo "<h3>On modifie l'info qu'on vient d'ajouter</h3>";
+					$unInfo=InfosCinemaDAO::chercher($unID);
+					
+					$unInfo->setTitre("Cinema Guzzo");
+					$unInfo->setUrlPhoto("photo5.jpeg");
+					InfosCinemaDAO::modifier($unInfo);
+					
+					$unInfo=InfosCinemaDAO::chercher($unID);
+					echo $unInfo?$unInfo:"Pas trouvé";
 					?>
 				</td>
 			</tr>
@@ -76,7 +100,12 @@
 				<td>supprimer</td>
 				<td>
 					<?php 
-
+						echo "<h3>On supprime l'info qu'on vient d'ajouter</h3>";
+						$unInfo=InfosCinemaDAO::chercher($unID);
+						InfosCinemaDAO::supprimer($unInfo);
+						// Vérification
+						$unInfo=InfosCinemaDAO::chercher($unID); 
+						echo $unInfo?$unInfo:"Pas trouvé";
 					?>
 				</td>
 			</tr>
