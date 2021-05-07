@@ -70,10 +70,10 @@ INSERT INTO acheteur VALUES (101, 'AcheteurB', '5145647891',20);
 INSERT INTO acheteur VALUES (102, 'AcheteurC', '5144489712',50);
 
 #4 infos_Cinema
-INSERT INTO infos_Cinema VALUES (0019, 'Cinéma de Montréal','photo.jpeg');
-INSERT INTO infos_Cinema VALUES (0020, 'Cinéma Québécoise', 'photo1.jpeg');
-INSERT INTO infos_Cinema VALUES (0021, 'Paris Cinemas', 'photo2.jpeg');
-INSERT INTO infos_Cinema VALUES (0022, 'Cinéma Rosemont', 'photo3.jpeg');
+INSERT INTO infos_Cinema VALUES (0019, 'Cinéma Beaubien','photo.png');
+INSERT INTO infos_Cinema VALUES (0020, 'Cinéma Guzzo', 'photo1.png');
+INSERT INTO infos_Cinema VALUES (0021, 'Cineplex', 'photo2.png');
+INSERT INTO infos_Cinema VALUES (0022, 'SilverCity Cinema', 'photo3.png');
 
 #6 tab_Cinema
 INSERT INTO tab_Cinema VALUES (100, "2021-04-05", 5.30, 100, 5, 0019);
