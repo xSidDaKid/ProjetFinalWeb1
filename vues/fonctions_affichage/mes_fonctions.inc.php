@@ -24,7 +24,8 @@
 				"Création d'un compte"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageCreationCompte",
 				"Modification du compte"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageModificationCompte",
 				"Achat de billet"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageAchatBillet",
-				"Ajout de représentations"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil"];
+				"Ajout de représentations"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageAjoutRepresentations",
+				"Supression d'acheteurs"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil"];
   
 		if ($categorieActeur == "acheteur") {
 			$tableauOptions=[ "Accueil"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil",
@@ -45,7 +46,7 @@
 				"Événements"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageEvenement", 
 				"Déconnexion"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil", 
 				"Supression d'acheteurs"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil",
-				"Ajout de représentations"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil"];
+				"Ajout de représentations"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageAjoutRepresentations"];
 			/*array_push($tableauOptions, "Déconnexion"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil", 
 										"Supression d'acheteurs"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil",
 										"Ajout de représentations"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil");*/
