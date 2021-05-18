@@ -15,7 +15,7 @@
 				"Informations générales"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageInfo",
 				"Événements"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageEvenement",
 				"Connexion"=>DOSSIER_BASE_LIENS."/index.php?action=seConnecter", 
-				"Création d'un compte"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil"];
+				"Création d'un compte"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageCreationCompte"];
   
 		if ($categorieActeur == "acheteur") {
 			$tableauOptions=[ "Accueil"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil",
