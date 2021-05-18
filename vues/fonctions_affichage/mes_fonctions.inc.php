@@ -25,7 +25,7 @@
 				"Modification du compte"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageModificationCompte",
 				"Achat de billet"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageAchatBillet",
 				"Ajout de représentations"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageAjoutRepresentations",
-				"Supression d'acheteurs"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil"];
+				"Supression d'acheteurs"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageSupressionAcheteurs"];
   
 		if ($categorieActeur == "acheteur") {
 			$tableauOptions=[ "Accueil"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil",
