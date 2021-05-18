@@ -10,22 +10,56 @@
 		Fonctions d'affichage des options du menu
 	********************************************** */
 	function afficherMenu($categorieActeur) {
-
+		
 	/*	$tableauOptions=[ "Accueil"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil",
-						  "Affichage de tous les Candidats"=>DOSSIER_BASE_LIENS."/index.php?action=voirLesCandidats",
-						  "Recherche d'un District"=>DOSSIER_BASE_LIENS."/index.php?action=chercherUnDistrict",
-						  "Collège Rosemont"=>"https://www.crosemont.qc.ca/",
-						  "W3 schools"=>"https://www.w3schools.com/"];
+				"Informations générales"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil",
+				"Événements"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil"];*/
+
+		//if ($categorieActeur == "visiteur") {
+			$tableauOptions=[ "Accueil"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil",
+				"Informations générales"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil",
+				"Événements"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil",
+				"Connexion"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil", 
+				"Création d'un compte"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil"];
+			/*array_push($tableauOptions, "Connexion"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil", 
+			"Création d'un compte"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil");*/
+			
+		//}  
+		if ($categorieActeur == "acheteur") {
+			$tableauOptions=[ "Accueil"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil",
+				"Informations générales"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil",
+				"Événements"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil",
+				"Connexion"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil", 
+				"Création d'un compte"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil", 
+				"Déconnexion"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil", 
+				"Modification du compte"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil",
+				"Achat de billet"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil"];
+			/*array_push($tableauOptions, "Déconnexion"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil", 
+										"Modification du compte"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil",
+										"Achat de billet"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil");*/
+		}
+		if ($categorieActeur == "administrateur") {
+			$tableauOptions=[ "Accueil"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil",
+				"Informations générales"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil",
+				"Événements"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil", 
+				"Déconnexion"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil", 
+				"Supression d'acheteurs"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil",
+				"Ajout de représentations"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil"];
+			/*array_push($tableauOptions, "Déconnexion"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil", 
+										"Supression d'acheteurs"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil",
+										"Ajout de représentations"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil");*/
+		}
+		
+
 		foreach ($tableauOptions as $option => $hyperlien) {
-			echo "<div>";
-			echo "<a href='$hyperlien'>$option</a>";  
-			echo "</div>";
+			echo "<li class='nav-item active'>";
+			echo "<a class='nav-link' href='$hyperlien'>$option</a>";  
+			echo "</li>";
 		}
 	}
-	}
+	
 	/* *******************************************
 		Fonctions d'affichage des messages d'erreurs
 	********************************************** */
 	function afficherErreurs($tableauErreurs) {
 	}
-
