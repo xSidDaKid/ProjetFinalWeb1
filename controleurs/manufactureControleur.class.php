@@ -8,6 +8,7 @@
 	include_once(DOSSIER_BASE_INCLUDE."controleurs/defaut.class.php");
 	include_once(DOSSIER_BASE_INCLUDE."controleurs/seConnecter.class.php");
 	include_once(DOSSIER_BASE_INCLUDE."controleurs/seDeconnecter.class.php");
+	include_once(DOSSIER_BASE_INCLUDE."controleurs/info.class.php");
 	
 	class ManufactureControleur {
 		//  Méthode qui crée une instance du controleur associé à l'action
@@ -16,6 +17,8 @@
 			$controleur = null;
 			if ($action == "voirPageAccueil") {
 				$controleur = new Defaut();
+			} elseif ($action == "voirPageInfo") {
+				$controleur = new info();
 			} elseif ($action == "seConnecter") {
 				$controleur = new seConnecter();
 			} elseif ($action == "seDeconnecter") {
