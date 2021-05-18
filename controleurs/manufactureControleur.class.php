@@ -12,6 +12,7 @@
 	include_once(DOSSIER_BASE_INCLUDE."controleurs/evenement.class.php");
 	include_once(DOSSIER_BASE_INCLUDE."controleurs/creationCompte.class.php");
 	include_once(DOSSIER_BASE_INCLUDE."controleurs/modificationCompte.class.php");
+	include_once(DOSSIER_BASE_INCLUDE."controleurs/achatBillet.class.php");
 	
 	class ManufactureControleur {
 		//  Méthode qui crée une instance du controleur associé à l'action
@@ -28,6 +29,8 @@
 				$controleur = new creationCompte();
 			} elseif ($action == "voirPageModificationCompte") {
 				$controleur = new modificationCompte();
+			} elseif ($action == "voirPageAchatBillet") {
+				$controleur = new achatBillet();
 			} elseif ($action == "seConnecter") {
 				$controleur = new seConnecter();
 			} elseif ($action == "seDeconnecter") {
