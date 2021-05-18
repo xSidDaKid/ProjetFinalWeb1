@@ -27,24 +27,28 @@ class InfosCinema{
     private $codeInfos;//int
     private $titre;//String
     private $urlPhoto;//String
+    private $categorieFilm;//String <--------------------------------------------------------- À Vérifier!
 
     //Constructeur
     public function __construct($unCode, $unTitre, $unUrl) {
         $this->codeInfos = $unCode;
 		$this->titre = $unTitre;
 		$this->urlPhoto = $unUrl;
+		$this->categorieFilm = $unCategorie;
     }
 
     // Accesseurs et mutateurs
 	public function getCodeInfos() { return $this->codeInfos; }
     public function getTitre() { return $this->titre; }
     public function getUrlPhoto() { return $this->urlPhoto; }
+    public function getCategorieFilm() { return $this->typeFilm; }
 
     public function setTitre($unTitre) { $this->titre = $unTitre; }
     public function setUrlPhoto($unUrl) { $this->urlPhoto = $unUrl; }
+    public function setCategorieFilm($unType) { $this->categorieFilm = $unCategorie; }
 
     //toString
     public function __toString() {
-       return $message = "[#" .$this->codeInfos. "] ".$this->titre.", Photo: " .$this->urlPhoto;
+       return $message = "[#" .$this->codeInfos. "] ".$this->titre.", Photo: " .$this->urlPhoto.", Catégorie: ".$this->categorieFilm;
     }
 }
