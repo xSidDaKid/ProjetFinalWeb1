@@ -1,6 +1,8 @@
 <!--
   Projet  H2021 
-  Noms    : 
+  Noms    : Kumaran Satkunanathan
+            Louai Roueha
+            Shajaan Balasingam
 -->
 <!DOCTYPE html>
 <html lang="fr">
@@ -19,14 +21,12 @@
 		include (DOSSIER_BASE_INCLUDE."vues/inclusions_html/menu.inc.php");
 	?>
 
-    <div class="bg a">
-        <div class="a pt-5 pb-5">
-            <h1 class="pt-5 pb-5">Voici notre page d'accueil</h1>
-        </div>
+    <div class="container section-1">
+        Voici notre page d'accueil
     </div>
-    <hr />
+    <!--    <hr />
     <h5><a href="<?php echo DOSSIER_BASE_LIENS?>/modele" target="_blank">liens vers les dossiers du modele</a>
-    </h5>
+    </h5> -->
 </body>
 
 </html>
