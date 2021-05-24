@@ -27,28 +27,28 @@ class InfosCinema{
     private $codeInfos;//int
     private $titre;//String
     private $urlPhoto;//String
-    private $villeCinema;//String 
+    private $salle;//String 
 
     //Constructeur
-    public function __construct($unCode, $unTitre, $unUrl, $ville) {
+    public function __construct($unCode, $unTitre, $unUrl, $pSalle) {
         $this->codeInfos = $unCode;
 		$this->titre = $unTitre;
 		$this->urlPhoto = $unUrl;
-		$this->villeCinema = $ville;
+		$this->salle = $pSalle;
     }
 
     // Accesseurs et mutateurs
 	public function getCodeInfos() { return $this->codeInfos; }
     public function getTitre() { return $this->titre; }
     public function getUrlPhoto() { return $this->urlPhoto; }
-    public function getVille() { return $this->villeCinema; }
+    public function getSalle() { return $this->salle; }
 
     public function setTitre($unTitre) { $this->titre = $unTitre; }
     public function setUrlPhoto($unUrl) { $this->urlPhoto = $unUrl; }
-    public function setVille($ville) { $this->villeCinema = $ville; }
+    public function setSalle($pSalle) { $this->salle = $pSalle; }
 
     //toString
     public function __toString() {
-       return $message = "[#" .$this->codeInfos. "] ".$this->titre.", Photo: " .$this->urlPhoto.", Ville du Cinéma: ".$this->villeCinema;
+       return $message = "[#" .$this->codeInfos. "] ".$this->titre.", Photo: " .$this->urlPhoto.", salle : ".$this->salle;
     }
 }
