@@ -39,7 +39,7 @@ class InfosCinemaDAO implements DAO {
 			if ($requete->rowCount()!=0) {
 				// ... et créer l’instance de l'Acheteur
 				$rangee=$requete->fetch();
-				$unInfo = new InfosCinema($rangee['code_infos'], $rangee['titre'], $rangee['url_photo'],$rangee['ville']);				
+				$unInfo = new InfosCinema($rangee['code_infos'], $rangee['titre'], $rangee['url_photo'],$rangee['salle']);				
 			}
 			
 			// fermer le curseur de la requête et la connexion à la BD
@@ -68,7 +68,7 @@ class InfosCinemaDAO implements DAO {
 			
 			// Analyser les enregistrements s'il y en a 
 			foreach ($requete as $rangee) {
-				$unInfo = new InfosCinema($rangee['code_infos'], $rangee['titre'], $rangee['url_photo'], $rangee['ville']);								
+				$unInfo = new InfosCinema($rangee['code_infos'], $rangee['titre'], $rangee['url_photo'], $rangee['salle']);								
 				array_push($tableau, $unInfo);
 			}
 			
@@ -96,7 +96,7 @@ class InfosCinemaDAO implements DAO {
 
 			// Analyser les enregistrements s'il y en a 
 			foreach ($requete as $rangee) {
-				$unInfo = new InfosCinema($rangee['code_infos'], $rangee['titre'], $rangee['url_photo'], $rangee['ville']);					
+				$unInfo = new InfosCinema($rangee['code_infos'], $rangee['titre'], $rangee['url_photo'], $rangee['salle']);					
 				array_push($tableau, $unInfo);
 			}
 			
