@@ -21,12 +21,12 @@
 	?>
     </ul>
     <!-- SE CONNECTER -->
-    <div class="container">
+    <div class="container_connexion">
         <div class="row justify-content-center">
             <div class="col-md-5 pt-6">
                 <div class="card">
 
-                    <div class="card-header connexion">Connexion</div>
+                    <div class="card-header_connexion">Connexion</div>
 
                     <div class="card-body">
                         <form action="<?php echo DOSSIER_BASE_LIENS;?>/index.php?action=seConnecter" method="post">
