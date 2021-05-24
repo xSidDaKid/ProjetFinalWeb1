@@ -20,7 +20,7 @@
     <?php
 	    include (DOSSIER_BASE_INCLUDE."vues/inclusions_html/menu.inc.php");
 	?>
-    <h1>Voici la page d'événement</h1>
+    <h1>Événement</h1>
 </body>
 
 </html>
