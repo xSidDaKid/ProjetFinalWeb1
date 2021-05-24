@@ -20,7 +20,7 @@
     <?php
 	    include (DOSSIER_BASE_INCLUDE."vues/inclusions_html/menu.inc.php");
 	?>
-    <h1>Voici la page de création d'un compte</h1>
+    <h1>Création d'un compte</h1>
 </body>
 
 </html>
