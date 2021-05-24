@@ -15,7 +15,7 @@
 <body >
 
 	<!---- Création d'un accessoire ---->
-	<h1>Fichier de test pour la classe Utilisateur</h1>
+	<h1>Fichier de test pour la classe InfosCinema</h1>
 	<?php
 		// ****** INLCUSIONS *******
 		// Importe l'interface DAO et la classe ZZZZDAO 
