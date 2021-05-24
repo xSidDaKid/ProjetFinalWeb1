@@ -33,6 +33,7 @@ CREATE TABLE infos_Cinema (
   code_infos        INT(10),
   titre             VARCHAR(255),
   url_photo         VARCHAR(255),
+  ville		 		VARCHAR(255),
   CONSTRAINT code_pk PRIMARY KEY (code_infos)
 );
 
@@ -70,10 +71,10 @@ INSERT INTO acheteur VALUES (101, 'AcheteurB', '5145647891',20);
 INSERT INTO acheteur VALUES (102, 'AcheteurC', '5144489712',50);
 
 #4 infos_Cinema
-INSERT INTO infos_Cinema VALUES (0019, 'Cinéma Beaubien','photo.png');
-INSERT INTO infos_Cinema VALUES (0020, 'Cinéma Guzzo', 'photo1.png');
-INSERT INTO infos_Cinema VALUES (0021, 'Cineplex', 'photo2.png');
-INSERT INTO infos_Cinema VALUES (0022, 'SilverCity Cinema', 'photo3.png');
+INSERT INTO infos_Cinema VALUES (0019, 'Cinéma Beaubien','photo.png', 'Montreal');
+INSERT INTO infos_Cinema VALUES (0020, 'Cinéma Guzzo', 'photo1.png','Laval');
+INSERT INTO infos_Cinema VALUES (0021, 'Cineplex', 'photo2.png', 'Dorval');
+INSERT INTO infos_Cinema VALUES (0022, 'SilverCity Cinema', 'photo3.png', 'Montreal');
 
 #6 tab_Cinema
 INSERT INTO tab_Cinema VALUES (100, "2021-04-05", 5.30, 100, 5, 0019);

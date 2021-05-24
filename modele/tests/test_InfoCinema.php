@@ -38,7 +38,7 @@
                 <td>Constructeur et affichage </td>
                 <td>
                     <?php 
-						$unInfo = new InfosCinema(200, "Film", "img.png", "Action");
+						$unInfo = new InfosCinema(200, "Film", "img.png", "Dorval");
 						echo "$unInfo";
 					?>
                 </td>
@@ -54,7 +54,7 @@
 						echo "<br/>";
 						echo $unInfo->getUrlPhoto()?"Bon":"Pas bon";
 						echo "<br/>";
-						echo $unInfo->getCategorieFilm()?"Bon":"Pas bon";
+						echo $unInfo->getVille()?"Bon":"Pas bon";
 					?>
                 </td>
             </tr>
@@ -68,8 +68,8 @@
 						echo $unInfo->setUrlPhoto("www");
 						echo $unInfo->getUrlPhoto();
 						echo "<br/>";
-						echo $unInfo->setCategorieFilm("Drame");
-						echo $unInfo->getCategorieFilm();
+						echo $unInfo->setVille("Laval");
+						echo $unInfo->getVille();
 					?>
                 </td>
             </tr>
