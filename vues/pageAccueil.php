@@ -22,7 +22,7 @@
 	?>
 
     <div class="container section-1">
-        Voici notre page d'accueil
+        Bonjour au Centre de Billeterie!
     </div>
     <!--    <hr />
     <h5><a href="<?php echo DOSSIER_BASE_LIENS?>/modele" target="_blank">liens vers les dossiers du modele</a>
