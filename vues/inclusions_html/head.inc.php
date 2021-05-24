@@ -5,7 +5,7 @@
 -->
 <meta  charset="UTF-8" />
 <script src="<?php echo DOSSIER_BASE_LIENS?>/jquery/jquery-3.5.0.min.js" type="text/javascript"></script>
-<link rel="stylesheet" type="text/css" href="<?php echo DOSSIER_BASE_LIENS?>/bootstrap/css/bootstrap.css"/>
+<link rel="stylesheet" type="style/css" href="<?php echo DOSSIER_BASE_LIENS?>/bootstrap/css/bootstrap.css"/>
 <script src="<?php echo DOSSIER_BASE_LIENS?>/bootstrap/js/bootstrap.bundle.js" type="text/javascript"></script>
 <!-- Vous pouvez ajouter vos propres importations css et js ici -->
 
