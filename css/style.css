@@ -6,7 +6,7 @@ body {
 }
 .bg {
   background-image: url(../images/salle1.jpg);
-  height: 150%;
+  height: 250%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -40,6 +40,15 @@ body {
   background-size: cover;
 }
 
+.card-header_connexion {
+  text-align: center;
+  text-shadow: 2px 2px gray;
+  letter-spacing: 10px;
+  font-size: 50px;
+  color: black;
+  font-weight: bold;
+}
+
 .section-1 {
   background-image: url(../images/salle1.jpg);
   height: 150%;
@@ -47,4 +56,3 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
-
