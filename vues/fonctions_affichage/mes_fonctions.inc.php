@@ -22,24 +22,25 @@
 			$tableauOptions=[ "Accueil"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil",
 				"Informations générales"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageInfo",
 				"Événements"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageEvenement",
-				"Déconnexion"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil", //À FAIRE <----------------------------------------------------------
 				"Modification du compte"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageModificationCompte",
-				"Achat de billet"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageAchatBillet"];
+				"Achat de billet"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageAchatBillet",
+				"Déconnexion"=>DOSSIER_BASE_LIENS."/index.php?action=seDeconnecter"]; //À FAIRE <----------------------------------------------------------
 		}
 		
 		if ($categorieActeur == "administrateur") {
 			$tableauOptions=[ "Accueil"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil",
 				"Informations générales"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageInfo",
 				"Événements"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageEvenement", 
-				"Déconnexion"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil", //À FAIRE <----------------------------------------------------------
 				"Supression d'acheteurs"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageSupressionAcheteurs",
-				"Ajout de représentations"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageAjoutRepresentations"];
+				"Ajout de représentations"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageAjoutRepresentations",
+				"Déconnexion"=>DOSSIER_BASE_LIENS."/index.php?action=seDeconnecter"]; //À FAIRE <----------------------------------------------------------
 		}
 		
 
 		foreach ($tableauOptions as $option => $hyperlien) {
 			echo "<li class='nav-item active'>";
 			echo "<a class='nav-link' href='$hyperlien'>$option</a>";  
+			echo $categorieActeur;
 			echo "</li>";
 		}
 	}

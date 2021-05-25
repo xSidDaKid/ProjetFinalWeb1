@@ -4,34 +4,31 @@
 -->
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-	<title>Page de connexion</title>
-	<?php
+    <title>Page de connexion</title>
+    <?php
 		include(DOSSIER_BASE_INCLUDE."vues/inclusions_html/head.inc.php");
 	?>
 
 </head>
+
 <body>
-	<h1>Page de déconnexion à remplir et menu à remplacer</h1>
-	
-	<ul>
-	<?php
-		echo "<li><a href='".DOSSIER_BASE_LIENS."/index.php?action=voirPageAccueil'>Page Accueil</a></li>";
-		if ($controleur->getCategorieUtilisateur()=="visiteur") {
-			echo "<li><a href='".DOSSIER_BASE_LIENS."/index.php?action=seConnecter'>Connexion</a></li>";			
-		} else  {
-			echo "<li><a href='".DOSSIER_BASE_LIENS."/index.php?action=seDeconnecter'>Déconnexion</a></li>";			
-		}
+    <!-- MENU -->
+    <?php
+	    include (DOSSIER_BASE_INCLUDE."vues/inclusions_html/menu.inc.php");
 	?>
-	</ul>
-					
-					
-	<form action="<?php echo DOSSIER_BASE_LIENS;?>/index.php?action=seDeconnecter" method="post" >
-		<input type="hidden" name="formulaireDeconnexion" value="true" />
-		<div>
-			<input type="submit" value="Confirmer"/>
-		</div>
-	</form>
-	
+
+
+    <form action="<?php echo DOSSIER_BASE_LIENS;?>/index.php?action=seDeconnecter" method="post">
+        <input type="hidden" name="formulaireDeconnexion" value="true" />
+        <div class="jumbotron text-center">
+            <h1>Voulez-vous déconnecter?</h1>
+            <br>
+            <input type="submit" value="Confirmer" />
+        </div>
+    </form>
+
 </body>
+
 </html>
