@@ -40,7 +40,6 @@
 		foreach ($tableauOptions as $option => $hyperlien) {
 			echo "<li class='nav-item active'>";
 			echo "<a class='nav-link' href='$hyperlien'>$option</a>";  
-			echo $categorieActeur;
 			echo "</li>";
 		}
 	}
@@ -49,4 +48,13 @@
 		Fonctions d'affichage des messages d'erreurs
 	********************************************** */
 	function afficherErreurs($tableauErreurs) {
+		foreach ($tableauErreurs as $erreur) {
+			echo "<h1>".$erreur."</h1>";
+		}
+	}
+	
+	function afficherSucces($tableauSucces) {
+		foreach ($tableauSucces as $succes) {
+			echo "<h1>".$succes."</h1>";
+		}
 	}

@@ -8,6 +8,7 @@
 	abstract class Controleur {
 		// ******************* Attributs 
 		protected $messagesErreur = array();
+		protected $messagesSucces = array();
 		protected $categorieUtilisateur= "visiteur";
 		protected $idUtilisateur=-1;
 		
@@ -20,6 +21,10 @@
 		public function getMessagesErreur() { 
 			return $this->messagesErreur;		
 		}
+		public function getMessagesSucces() { 
+			return $this->messagesSucces;		
+		}
+		
 		public function getCategorieUtilisateur() { 
 			return $this->categorieUtilisateur;		
 		}

@@ -39,6 +39,7 @@
 					$this->idUtilisateur=$unUtilisateur->getIdUtilisateur();
 					$_SESSION['categorieUtilisateur']=$this->categorieUtilisateur;
 					$_SESSION['idUtilisateur']=$this->idUtilisateur;
+					array_push ($this->messagesSucces,"Connexion Réussi!");
 					return "pageAccueil";
 				}
 			} else {

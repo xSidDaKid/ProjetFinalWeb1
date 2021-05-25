@@ -23,7 +23,11 @@
         <div class="row justify-content-center">
             <div class="col-md-5 pt-6">
                 <div class="card">
-
+                    <?php
+                        echo "<div class='bg-success text-center'>";
+                        afficherErreurs($controleur->getMessagesErreur());
+                        echo "</div>";
+                    ?>
                     <div class="card-header_connexion">Connexion</div>
 
                     <div class="card-body">

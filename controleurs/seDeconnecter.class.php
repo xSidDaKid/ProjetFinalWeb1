@@ -26,6 +26,7 @@
 				$this->categorieUtilisateur="visiteur";
 				unset($_SESSION['categorieUtilisateur']);
 				unset($_SESSION['idUtilisateur']);
+				array_push ($this->messagesSucces,"Déconnexion Réussi!");
 				return "pageAccueil";
 			} else {
 				return "pageDeconnexion";				

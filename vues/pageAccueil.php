@@ -18,7 +18,13 @@
     <!-- MENU -->
     <?php
 		include (DOSSIER_BASE_INCLUDE."vues/inclusions_html/menu.inc.php");
+    
 	?>
+    <?php
+          echo "<div class='bg-success text-center'>";
+          afficherSucces($controleur->getMessagesSucces());
+          echo "</div>";
+    ?>
 
     <div class="container section-1">
         Bonjour au Centre de Billeterie!
