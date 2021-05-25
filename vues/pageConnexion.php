@@ -24,7 +24,7 @@
             <div class="col-md-5 pt-6">
                 <div class="card">
                     <?php
-                        echo "<div class='bg-success text-center'>";
+                        echo "<div class='bg-danger text-center'>";
                         afficherErreurs($controleur->getMessagesErreur());
                         echo "</div>";
                     ?>
