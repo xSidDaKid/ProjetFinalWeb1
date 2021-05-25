@@ -10,7 +10,6 @@
     <?php
 		include(DOSSIER_BASE_INCLUDE."vues/inclusions_html/head.inc.php");
 	?>
-
 </head>
 
 <body>
