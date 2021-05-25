@@ -39,7 +39,7 @@
                             </div>
                             <div class="form-group row">
                                 <label class="pr-5 connexion">Mot de passe : </label>
-                                <input class="pr-5" type="text" name="mot_passe" />
+                                <input class="pr-5" type="password" name="mot_passe" />
                             </div>
                             <div>
                                 <input type="submit" value="Soumettre" />
