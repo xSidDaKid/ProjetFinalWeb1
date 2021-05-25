@@ -40,7 +40,6 @@
 		foreach ($tableauOptions as $option => $hyperlien) {
 			echo "<li class='nav-item active'>";
 			echo "<a class='nav-link' href='$hyperlien'>$option</a>";  
-			echo $categorieActeur;
 			echo "</li>";
 		}
 	}
