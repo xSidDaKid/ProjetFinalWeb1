@@ -48,6 +48,7 @@
 		Fonctions d'affichage des messages d'erreurs
 	********************************************** */
 	function afficherErreurs($tableauErreurs) {
+<<<<<<< HEAD
 		foreach ($tableauErreurs as $erreur) {
 			echo "<h1>".$erreur."</h1>";
 		}
@@ -58,3 +59,6 @@
 			echo "<h1>".$succes."</h1>";
 		}
 	}
+=======
+	}
+>>>>>>> aa3a1f89b7e8f59e7140b2565e958d5e44ccb3aa

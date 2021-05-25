@@ -50,6 +50,35 @@ class CinemaDAO implements DAO {
 			ConnexionBD::close();
 			return $unCinema;
 	}
+	
+	public static function chercherParDate($laDate) { 
+			
+			// obtenir la connexion
+			try {
+				$connexion=ConnexionBD::getInstance();
+			} catch (Exception $e) {
+				throw new Exception("Impossible d’obtenir la connexion à la BD."); 
+			}
+
+			// valeur par défaut pour la variable à retourner si non-trouvée
+			$unCinema=null;
+			
+			// Préparer et exécute une requête de type DAOStatement avec des paramètres SQL	
+			$requete=$connexion->prepare("SELECT * FROM tab_cinema WHERE la_date=?");
+			$requete->execute(array($laDate));
+
+			// Analyser l’enregistrement, s’il existe,
+			if ($requete->rowCount()!=0) {
+				// ... et créer l’instance de Cinema
+				$rangee=$requete->fetch();
+				$unCinema = new Cinema($rangee['numero_Cinema'], $rangee['la_date'], $rangee['prix_un_billet'], $rangee['places_totales'], $rangee['places_vendues'], $rangee['code_infos']);				
+			}
+			
+			// fermer le curseur de la requête et la connexion à la BD
+			$requete->closeCursor();
+			ConnexionBD::close();
+			return $unCinema;
+	}
 	public static function chercherTous() { 
 
 			// obtenir la connexion
