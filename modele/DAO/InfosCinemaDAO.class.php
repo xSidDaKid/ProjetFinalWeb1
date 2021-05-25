@@ -47,6 +47,59 @@ class InfosCinemaDAO implements DAO {
 			ConnexionBD::close();
 			return $unInfo;
 	}
+	//Par titre
+	public static function chercherParTitre($titre) {
+		// obtenir la connexion
+			try {
+				$connexion=ConnexionBD::getInstance();
+			} catch (Exception $e) {
+				throw new Exception("Impossible d’obtenir la connexion à la BD."); 
+			}
+			// valeur par défaut pour la variable à retourner si non-trouvée
+			$unInfo=null;
+			
+			// Préparer et exécute une requête de type DAOStatement avec des paramètres SQL	
+			$requete=$connexion->prepare("SELECT * FROM infos_cinema WHERE titre=?");
+			$requete->execute(array($titre));
+			// Analyser l’enregistrement, s’il existe,
+			if ($requete->rowCount()!=0) {
+				// ... et créer l’instance de l'Acheteur
+				$rangee=$requete->fetch();
+				$unInfo = new InfosCinema($rangee['code_infos'], $rangee['titre'], $rangee['url_photo'],$rangee['salle']);				
+			}
+			
+			// fermer le curseur de la requête et la connexion à la BD
+			$requete->closeCursor();
+			ConnexionBD::close();
+			return $unInfo;
+	}
+	//Par salle
+	public static function chercherParSalle($salle) {
+		// obtenir la connexion
+			try {
+				$connexion=ConnexionBD::getInstance();
+			} catch (Exception $e) {
+				throw new Exception("Impossible d’obtenir la connexion à la BD."); 
+			}
+			// valeur par défaut pour la variable à retourner si non-trouvée
+			$unInfo=null;
+			
+			// Préparer et exécute une requête de type DAOStatement avec des paramètres SQL	
+			$requete=$connexion->prepare("SELECT * FROM infos_cinema WHERE salle=?");
+			$requete->execute(array($salle));
+			// Analyser l’enregistrement, s’il existe,
+			if ($requete->rowCount()!=0) {
+				// ... et créer l’instance de l'Acheteur
+				$rangee=$requete->fetch();
+				$unInfo = new InfosCinema($rangee['code_infos'], $rangee['titre'], $rangee['url_photo'],$rangee['salle']);				
+			}
+			
+			// fermer le curseur de la requête et la connexion à la BD
+			$requete->closeCursor();
+			ConnexionBD::close();
+			return $unInfo;
+	}
+	
 
 	public static function chercherAvecFiltre($clause){ 
 
@@ -117,10 +170,10 @@ class InfosCinemaDAO implements DAO {
 			}
 
 			// On prépare la commande insert
-			$requete=$connexion->prepare("INSERT INTO infos_cinema (code_infos,titre,url_photo, salle) VALUES (?,?,?,?)");
+			$requete=$connexion->prepare("INSERT INTO infos_cinema (code_infos,titre,url_photo) VALUES (?,?,?)");
 
 			// On l’exécute, et on retourne l’état de réussite (true/false)
-			$tableauInfos=[$unInfo->getCodeInfos(),$unInfo->getTitre(),$unInfo->getUrlPhoto(), $unInfo->getSalle()];
+			$tableauInfos=[$unInfo->getCodeInfos(),$unInfo->getTitre(),$unInfo->getUrlPhoto()];
 
 			return $requete->execute($tableauInfos);
 	}
@@ -135,9 +188,9 @@ class InfosCinemaDAO implements DAO {
 			}
 			
 			// On prépare la commande update
-			$requete=$connexion->prepare("UPDATE infos_cinema SET titre=?, url_photo=?, salle=? WHERE code_infos=?");
+			$requete=$connexion->prepare("UPDATE infos_cinema SET titre=?, url_photo=? WHERE code_infos=?");
 
-			$tableauInfos=[$unInfo->getTitre(), $unInfo->getUrlPhoto(),$unInfo->getSalle(), $unInfo->getCodeInfos()];
+			$tableauInfos=[$unInfo->getTitre(), $unInfo->getUrlPhoto(), $unInfo->getCodeInfos()];
 
 			// On exécute la requête			   
 			$requete->execute($tableauInfos);
