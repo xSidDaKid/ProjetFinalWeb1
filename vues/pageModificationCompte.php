@@ -29,8 +29,39 @@
             <label for="text">Téléphone</label>
             <input type="text" name="telephone" id="" class="form-control" placeholder="Téléphone"
                 aria-describedby="helpId">
+
+            </br>
+            <label for="text"><?php echo $id;?></label>
+            <label for="text">Solde</label>
+            <input type="text" name="solde" id="" class="form-control" placeholder="Solde"
+                aria-describedby="helpId">
+                </br>
+            <input type="submit" value="Modifier"/>
+                
         </form>
+        </br>   
     </div>
+
+    <?php
+          echo "<div class='bg-success text-center'>";
+          afficherSucces($controleur->getMessagesSucces());
+          echo "</div>";
+          echo "<div class='bg-danger text-center'>";
+          afficherErreurs($controleur->getMessagesErreur());
+          echo "</div>";
+    ?>
+   
+     <?php 
+       $tabAcheteurs = $controleur->getAcheteurs();
+       echo "<ul class='list-group'>";
+       foreach ($tabAcheteurs as $tab) {
+           echo "<li class='list-group-item'>";
+           echo $tab;
+           echo "</li>";
+        }
+        echo "</ul>";
+        
+    ?>
 </body>
 
 </html>
