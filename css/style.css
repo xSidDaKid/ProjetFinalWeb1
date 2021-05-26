@@ -76,3 +76,12 @@ h1 {
   width: 50%;
   padding: 10px;
 }
+
+.caroussel {
+  border-style: solid;
+  height: 50%;
+}
+
+.image {
+  height: 600px;
+}
