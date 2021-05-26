@@ -8,7 +8,7 @@
 <html lang="fr">
 
 <head>
-    <title>Projet-test</title>
+    <title>Suppression d'un acheteur</title>
     <?php
 		include(DOSSIER_BASE_INCLUDE."vues/inclusions_html/head.inc.php");
 	?>
@@ -19,10 +19,11 @@
     <?php
 	    include (DOSSIER_BASE_INCLUDE."vues/inclusions_html/menu.inc.php");
 	?>
-    <h1>Suppression d'un acheteur</h1>
+    <h1 class="p-3 display-2">Suppression d'un acheteur</h1>
     <br>
-    <div class="card w-50 ml-3">
-        <?php
+    <div class="centrer">
+        <div class="card  ml-3">
+            <?php
             echo "<div class='bg-success text-center'>";
             afficherSucces($controleur->getMessagesSucces());
             echo "</div>";
@@ -39,14 +40,15 @@
             echo "</ul>";
         ?>
 
-        <form action="<?php echo DOSSIER_BASE_LIENS;?>/index.php?action=voirPageSupressionAcheteurs" method="post">
-            <div class="form-group">
-                <label for="text">ID Acheteur</label>
-                <input type="number" name="id_acheteur" id="" class="form-control" placeholder="[#ID]"
-                    aria-describedby="helpId">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+            <form action="<?php echo DOSSIER_BASE_LIENS;?>/index.php?action=voirPageSupressionAcheteurs" method="post">
+                <div class="form-group">
+                    <label class="p-3" for="text">ID Acheteur</label>
+                    <input type="number" name="id_acheteur" id="" class="form-control" placeholder="[#ID]"
+                        aria-describedby="helpId">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
     </div>
 </body>
 
