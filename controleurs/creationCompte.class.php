@@ -27,18 +27,16 @@ class creationCompte extends Controleur {
     // ******************* Méthode exécuter action
     public function executerAction() {
 
-        $this->nom_acheteur = $_POST['nom'];
-        $this->telephone_acheteur = $_POST['telephone'];
-        $this->id_acheteur = AcheteurDAO::obtenirProchainId();
-        $this->unAcheteur = new Acheteur($this->id_acheteur, $this->nom_acheteur, $this->telephone_acheteur, 0 );
+        if(isset($_POST['nom']) and isset($_POST['telephone'])){
+            $this->nom_acheteur = $_POST['nom'];
+            $this->telephone_acheteur = $_POST['telephone'];
+            $this->id_acheteur = AcheteurDAO::obtenirProchainId();
+                
+            $this->unAcheteur = new Acheteur($this->id_acheteur, $this->nom_acheteur, $this->telephone_acheteur, 0 );
+            $this->unAcheteur = AcheteurDAO::inserer($this->unAcheteur);
+            array_push ($this->messagesSucces,"Création Réussi!");
+        }               
 
-        if ($this->nom_acheteur!=""){
-          $this->unAcheteur = AcheteurDAO::inserer($this->unAcheteur);
-          array_push ($this->messagesSucces,"Création Réussi!");
-        }
-        else{
-            array_push ($this->messagesErreur,"Création échoué a un billet");
-        }
         return "pageCreationCompte";
     }
 }
