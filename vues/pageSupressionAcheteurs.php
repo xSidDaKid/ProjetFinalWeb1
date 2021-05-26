@@ -22,7 +22,7 @@
     <h1 class="p-3 display-2">Suppression d'un acheteur</h1>
     <br>
     <div class="centrer">
-        <div class="card  ml-3">
+        <div class="card  ml-3 p-2">
             <?php
             echo "<div class='bg-success text-center'>";
             afficherSucces($controleur->getMessagesSucces());
