@@ -78,7 +78,12 @@
 
 
     </div>
-
+    <br><br><br><br>
+    <!-- PIED -->
+    <?php
+		include (DOSSIER_BASE_INCLUDE."vues/inclusions_html/pied.inc.php");
+    
+	?>
 </body>
 
 </html>
