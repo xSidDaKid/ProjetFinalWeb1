@@ -8,7 +8,7 @@
 <html lang="fr">
 
 <head>
-    <title>Projet-test</title>
+    <title>Achat d'un achat</title>
     <?php
 		include(DOSSIER_BASE_INCLUDE."vues/inclusions_html/head.inc.php");
 	?>
