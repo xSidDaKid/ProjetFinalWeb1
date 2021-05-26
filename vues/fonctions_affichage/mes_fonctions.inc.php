@@ -15,8 +15,8 @@
 		$tableauOptions=[ "Accueil"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil",
 			"Informations générales"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageInfo",
 			"Événements"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageEvenement",
-			"Connexion"=>DOSSIER_BASE_LIENS."/index.php?action=seConnecter", 
-			"Création d'un compte"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageCreationCompte"];
+			"Création d'un compte"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageCreationCompte",
+			"Connexion"=>DOSSIER_BASE_LIENS."/index.php?action=seConnecter"];
 
 		if ($categorieActeur == "acheteur") {
 			$tableauOptions=[ "Accueil"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil",
@@ -24,7 +24,7 @@
 				"Événements"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageEvenement",
 				"Modification du compte"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageModificationCompte",
 				"Achat de billet"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageAchatBillet",
-				"Déconnexion"=>DOSSIER_BASE_LIENS."/index.php?action=seDeconnecter"]; //À FAIRE <----------------------------------------------------------
+				"Déconnexion"=>DOSSIER_BASE_LIENS."/index.php?action=seDeconnecter"]; 
 		}
 		
 		if ($categorieActeur == "administrateur") {
@@ -33,7 +33,7 @@
 				"Événements"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageEvenement", 
 				"Supression d'acheteurs"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageSupressionAcheteurs",
 				"Ajout de représentations"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageAjoutRepresentations",
-				"Déconnexion"=>DOSSIER_BASE_LIENS."/index.php?action=seDeconnecter"]; //À FAIRE <----------------------------------------------------------
+				"Déconnexion"=>DOSSIER_BASE_LIENS."/index.php?action=seDeconnecter"]; 
 		}
 		
 
