@@ -47,13 +47,13 @@
                 <div class="form-group">
                     <label for="text">Choix du mode de paiement</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="compte" id="gridRadios1" value="option1">
+                        <input type="checkbox" class="redio form-check-input" name="compte" id="gridRadios1" value="1">
                         <label class="form-check-label" for="gridRadios1">
                             Porté au compte
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="credit" id="gridRadios2" value="option2">
+                        <input type="checkbox" class="redio form-check-input" name="credit" id="gridRadios2" value="1">
                         <label class="form-check-label" for="gridRadios2">
                             Par crédit
                         </label>
