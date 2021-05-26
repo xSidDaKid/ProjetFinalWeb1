@@ -24,7 +24,7 @@
 	    include (DOSSIER_BASE_INCLUDE."vues/inclusions_html/menu.inc.php");
 	?>
     <h1>Ce site vend des billets de cinéma</h1>
-	<?php 
+    <?php 
 		echo "Nombre total d'acheteurs : ";
 		$compteur = 0;
 		$tabAcheteur=AcheteurDAO::chercherTous();
@@ -54,11 +54,12 @@
 		 echo $compteur;
 		 		
 	?>
-	</br>;
-	<p>Propriétaire/Gérant :Kumaran Satkunanathan, Louai Roueha, Shajaan Balasingam </br> Numéro de contact: 514-xxx-xxxx</p>;
-	
-	
-	
+    </br>;
+    <p>Propriétaire/Gérant :Kumaran Satkunanathan, Louai Roueha, Shajaan Balasingam </br> Numéro de contact:
+        514-xxx-xxxx</p>;
+
+
+
 </body>
 
 </html>
