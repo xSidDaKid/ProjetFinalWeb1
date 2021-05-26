@@ -49,12 +49,12 @@
 	********************************************** */
 	function afficherErreurs($tableauErreurs) {
 		foreach ($tableauErreurs as $erreur) {
-			echo "<h1>".$erreur."</h1>";
+			echo "<h1 class='p-2 mt-2'>".$erreur."</h1>";
 		}
 	}
 	
 	function afficherSucces($tableauSucces) {
 		foreach ($tableauSucces as $succes) {
-			echo "<h1>".$succes."</h1>";
+			echo "<h1 class='p-2 mt-2'>".$succes."</h1>";
 		}
 	}

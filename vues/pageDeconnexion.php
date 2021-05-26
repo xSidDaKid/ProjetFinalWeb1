@@ -6,7 +6,7 @@
 <html lang="fr">
 
 <head>
-    <title>Page de connexion</title>
+    <title>Page de déconnexion</title>
     <?php
 		include(DOSSIER_BASE_INCLUDE."vues/inclusions_html/head.inc.php");
 	?>
@@ -18,16 +18,16 @@
 	    include (DOSSIER_BASE_INCLUDE."vues/inclusions_html/menu.inc.php");
 	?>
 
-
-    <form action="<?php echo DOSSIER_BASE_LIENS;?>/index.php?action=seDeconnecter" method="post">
-        <input type="hidden" name="formulaireDeconnexion" value="true" />
-        <div class="jumbotron text-center">
-            <h1>Voulez-vous déconnecter?</h1>
-            <br>
-            <input type="submit" value="Confirmer" />
-        </div>
-    </form>
-
+    <div class="centrer mt-4">
+        <form action="<?php echo DOSSIER_BASE_LIENS;?>/index.php?action=seDeconnecter" method="post">
+            <input type="hidden" name="formulaireDeconnexion" value="true" />
+            <div class="jumbotron text-center">
+                <h1 class="p-3 display-4">Voulez-vous déconnecter?</h1>
+                <br>
+                <input class="btn btn-primary" type="submit" value="Confirmer" />
+            </div>
+        </form>
+    </div>
 </body>
 
 </html>
