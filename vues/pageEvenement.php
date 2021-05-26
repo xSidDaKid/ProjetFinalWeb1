@@ -30,7 +30,7 @@
                 <label>Rechercher par Titre : </label>
                 <input type="text" name="titre" />
             </div>
-            <input type="submit" value="Chercher le titre" />
+            <input class="btn btn-primary" type="submit" value="Chercher le titre" />
         </form>
         <?php				
 			$unCinema=$controleur->getLeTitre();
@@ -43,35 +43,33 @@
                 <label>Rechercher par date : </label>
                 <input type="text" name="date" />
             </div>
-            <input type="submit" value="Chercher par date" />
+            <input class="btn btn-primary" type="submit" value="Chercher par date" />
         </form>
         <?php				
 			$unCinema=$controleur->getLaDate();
 			echo "<p class='lead p-2'>".$unCinema."</p>";
 		?>
 
-        </br></br>
         <form class="mon_formulaire p-3 m-2"
             action="<?php echo DOSSIER_BASE_LIENS;?>/index.php?action=voirPageEvenement" method="post">
             <div>
                 <label>Rechercher par code : </label>
                 <input type="text" name="code_infos" />
             </div>
-            <input type="submit" value="Chercher le code infos" />
+            <input class="btn btn-primary" type="submit" value="Chercher le code infos" />
         </form>
         <?php				
 			$unCinema=$controleur->getLeCode();
 			echo "<p class='lead p-2'>".$unCinema."</p>";
 		?>
 
-        </br></br>
         <form class="mon_formulaire p-3 m-2"
             action="<?php echo DOSSIER_BASE_LIENS;?>/index.php?action=voirPageEvenement" method="post">
             <div>
                 <label>Rechercher par salle : </label>
                 <input type="text" name="salle" />
             </div>
-            <input type="submit" value="Chercher par salle" />
+            <input class="btn btn-primary" type="submit" value="Chercher par salle" />
         </form>
         <?php				
 			$unCinema=$controleur->getLaSalle();
