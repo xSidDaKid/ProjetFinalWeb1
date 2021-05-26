@@ -8,7 +8,7 @@
 <html lang="fr">
 
 <head>
-    <title>Projet-test</title>
+    <title>Création d'un compte</title>
     <?php
 		include(DOSSIER_BASE_INCLUDE."vues/inclusions_html/head.inc.php");
 	?>
@@ -19,25 +19,8 @@
     <?php
 	    include (DOSSIER_BASE_INCLUDE."vues/inclusions_html/menu.inc.php");
 	?>
-    <h1>Création d'un compte</h1>
-   
-    <form class="mon_formulaire" action="<?php echo DOSSIER_BASE_LIENS;?>/index.php?action=voirPageCreationCompte" method="post">
-						<div>
-							<label>Nom: </label>
-							<input type="text" name="nom" id="nom" required/>
-						</div>
-                        <div>
-							<label>Mot de passe : </label>
-							<input type="password" name="modeDePasse" id="modeDePasse" required/>
-						</div>
-                        <div>
-							<label>Téléphone : </label>
-							<input type="number" name="telephone" id="telephone" required/>
-						</div>
-						<input type="submit" value="Créer"/>
-					</form>   
-
-     <?php
+    <h1 class="p-3 display-2">Création d'un compte</h1>
+    <?php
           echo "<div class='bg-success text-center'>";
           afficherSucces($controleur->getMessagesSucces());
           echo "</div>";
@@ -45,9 +28,27 @@
           afficherErreurs($controleur->getMessagesErreur());
           echo "</div>";
     ?>
-   
-     <?php 
-       $tabAcheteurs = $controleur->getAcheteurs();
+    <div class="card centrer w-25 mt-5">
+        <form class="mon_formulaire" action="<?php echo DOSSIER_BASE_LIENS;?>/index.php?action=voirPageCreationCompte"
+            method="post">
+            <div class="form-group">
+                <label>Nom: </label>
+                <input type="text" name="nom" id="nom" required />
+            </div>
+            <div class="form-group">
+                <label>Mot de passe : </label>
+                <input type="password" name="modeDePasse" id="modeDePasse" required />
+            </div>
+            <div class="form-group">
+                <label>Téléphone : </label>
+                <input type="number" name="telephone" id="telephone" required />
+            </div>
+            <input type="submit" value="Créer" />
+        </form>
+    </div>
+
+    <?php 
+      /* $tabAcheteurs = $controleur->getAcheteurs();
        echo "<ul class='list-group'>";
        foreach ($tabAcheteurs as $tab) {
            echo "<li class='list-group-item'>";
@@ -55,14 +56,14 @@
            echo "</li>";
         }
         echo "</ul>";
-        
+        */
     ?>
-    
 
 
 
 
-    
+
+
 
 
 </body>
