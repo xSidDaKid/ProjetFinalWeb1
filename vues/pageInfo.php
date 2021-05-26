@@ -8,7 +8,7 @@
 <html lang="fr">
 
 <head>
-    <title>Projet-test</title>
+    <title>Informations Générales</title>
     <?php
 		include(DOSSIER_BASE_INCLUDE."vues/inclusions_html/head.inc.php");
 		include_once(DOSSIER_BASE_INCLUDE."modele/DAO/AcheteurDAO.class.php");
@@ -23,41 +23,46 @@
     <?php
 	    include (DOSSIER_BASE_INCLUDE."vues/inclusions_html/menu.inc.php");
 	?>
-    <h1>Ce site vend des billets de cinéma</h1>
-    <?php 
-		echo "Nombre total d'acheteurs : ";
-		$compteur = 0;
-		$tabAcheteur=AcheteurDAO::chercherTous();
-		 foreach($tabAcheteur as $acheteur){
-			 $compteur ++;
-		 }
-		 echo $compteur;
-		 
-		 echo "<br/>";
-		 
-		echo "Nombre total de billets : ";
-		$compteur = 0;
-		$tabBillets=BilletDAO::chercherTous();
-		 foreach($tabBillets as $billet){
-			 $compteur ++;
-		 }
-		 echo $compteur;
-		 
-		 echo "<br/>";
-		 
-		 echo "Nombre total de cinémas : ";
-		$compteur = 0;
-		$tabCinema=CinemaDAO::chercherTous();
-		 foreach($tabCinema as $cinema){
-			 $compteur ++;
-		 }
-		 echo $compteur;
-		 		
-	?>
-    </br>;
-    <p>Propriétaire/Gérant :Kumaran Satkunanathan, Louai Roueha, Shajaan Balasingam </br> Numéro de contact:
-        514-xxx-xxxx</p>;
-
+    <h1 class="p-3 display-2">Informations Générales</h1>
+    <div class="card w-50 p-2 m-4">
+        <p class="lead">Ce site vend des billets de cinéma</p>
+        <?php
+			echo "<ul class='list-group'>";
+			echo "<li class='list-group-item'>Nombre total d'acheteurs : ";
+			$compteur = 0;
+			$tabAcheteur=AcheteurDAO::chercherTous();
+			foreach($tabAcheteur as $acheteur){
+				$compteur ++;
+			}
+			echo $compteur."</li>";
+			
+			echo "<br/>";
+			
+			echo "<li class='list-group-item'>Nombre total de billets : ";
+			$compteur = 0;
+			$tabBillets=BilletDAO::chercherTous();
+			foreach($tabBillets as $billet){
+				$compteur ++;
+			}
+			echo $compteur."</li>";
+			
+			echo "<br/>";
+			
+			echo "<li class='list-group-item'>Nombre total de cinémas : ";
+			$compteur = 0;
+			$tabCinema=CinemaDAO::chercherTous();
+			foreach($tabCinema as $cinema){
+				$compteur ++;
+			}
+			echo $compteur."</li>";
+			echo "</ul>"
+		?>
+        <ul class='list-group'>
+            <li class='list-group-item'>Propriétaire/Gérant : Kumaran Satkunanathan, Louai Roueha, Shajaan Balasingam
+            </li>
+            <li class='list-group-item'>Numéro de contact:514-xxx-xxxx</li>
+        </ul>
+    </div>
 
 
 </body>
