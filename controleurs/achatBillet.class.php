@@ -55,7 +55,6 @@ class achatBillet extends Controleur {
                             CinemaDAO::modifier($tab2);
                         }
                         if (ISSET($_POST['compte'])) {
-                            echo "<h1>Compte</h1>";
                             $unAcheteur = AcheteurDAO::chercher($this->getIdUtilisateur());
                             $unAcheteur->chargerSolde($prix * $_POST['nb_billet']);
                             AcheteurDAO::modifier($unAcheteur);
@@ -63,7 +62,6 @@ class achatBillet extends Controleur {
                             " billet(s) pour le film <i>".$this->unFilm->getTitre()."</i> pour ".($prix* $_POST['nb_billet'])."$!");
                         }
                         elseif (ISSET($_POST['credit'])) {
-                            echo "<h1>credit</h1>";
                             array_push ($this->messagesSucces, "Vous avez acheté ".$_POST['nb_billet'].
                             " billet(s) pour le film <i>".$this->unFilm->getTitre()."</i> pour ".($prix* $_POST['nb_billet'])."$!");
                             
