@@ -8,7 +8,7 @@
 <html lang="fr">
 
 <head>
-    <title>pageAjoutRepresentations</title>
+    <title>Ajout d'une représentations</title>
     <?php
 		include(DOSSIER_BASE_INCLUDE."vues/inclusions_html/head.inc.php");
 	?>
@@ -19,21 +19,24 @@
     <?php
 	    include (DOSSIER_BASE_INCLUDE."vues/inclusions_html/menu.inc.php");
 	?>
-    <h1>Voici la page d'ajout de représentations</h1>
+    <h1 class="p-3 display-2">Ajout d'une représentation</h1>
+
     <?php
-                        echo "<div class='bg-danger text-center'>";
-                        afficherErreurs($controleur->getMessagesErreur());
-                        echo "</div>";
-                    ?>
+        echo "<div class='bg-danger text-center'>";
+        afficherErreurs($controleur->getMessagesErreur());
+        echo "</div>";
+    ?>
 
-    <form class="mon_formulaire" action="<?php echo DOSSIER_BASE_LIENS;?>/index.php?action=voirPageAjoutRepresentations" method="post">
-						<div>
-							<label>Rechercher par code : </label>
-							<input type="text" name="code_infos"/>
-						</div>
-						<input type="submit" value="Chercher le code infos"/>
-					</form>
-
+    <div class="card centrer w-25 mt-5">
+        <form class="mon_formulaire"
+            action="<?php echo DOSSIER_BASE_LIENS;?>/index.php?action=voirPageAjoutRepresentations" method="post">
+            <div class="form-group">
+                <label>Rechercher par code : </label>
+                <input type="text" name="code_infos" />
+            </div>
+            <input class="btn btn-primary" type="submit" value="Chercher le code infos" />
+        </form>
+    </div>
 
 
 </body>
