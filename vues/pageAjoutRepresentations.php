@@ -19,7 +19,7 @@
     <?php
 	    include (DOSSIER_BASE_INCLUDE."vues/inclusions_html/menu.inc.php");
 	?>
-    <h1 class="p-3 display-2">Ajout d'une représentation</h1>
+    <h1 class="p-3 display-2">Recherche d'un film</h1>
 
     <?php
         echo "<div class='bg-danger text-center'>";
