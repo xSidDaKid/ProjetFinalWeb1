@@ -170,10 +170,10 @@ class InfosCinemaDAO implements DAO {
 			}
 
 			// On prépare la commande insert
-			$requete=$connexion->prepare("INSERT INTO infos_cinema (code_infos,titre,url_photo) VALUES (?,?,?)");
+			$requete=$connexion->prepare("INSERT INTO infos_cinema (code_infos,titre,url_photo, salle) VALUES (?,?,?,?)");
 
 			// On l’exécute, et on retourne l’état de réussite (true/false)
-			$tableauInfos=[$unInfo->getCodeInfos(),$unInfo->getTitre(),$unInfo->getUrlPhoto()];
+			$tableauInfos=[$unInfo->getCodeInfos(),$unInfo->getTitre(),$unInfo->getUrlPhoto(), $unInfo->getSalle()];
 
 			return $requete->execute($tableauInfos);
 	}
