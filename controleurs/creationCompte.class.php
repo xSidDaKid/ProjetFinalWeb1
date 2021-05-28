@@ -8,12 +8,15 @@
 include_once(DOSSIER_BASE_INCLUDE."controleurs/controleur.abstract.class.php");
 include_once(DOSSIER_BASE_INCLUDE."modele/DAO/InfosCinemaDAO.class.php");
 include_once(DOSSIER_BASE_INCLUDE."modele/DAO/AcheteurDAO.class.php");
+include_once(DOSSIER_BASE_INCLUDE."modele/DAO/UtilisateurDAO.class.php");
 
 class creationCompte extends Controleur {
     private $nom_acheteur = null;
     private $telephone_acheteur = null;
     private $id_acheteur = null;
+    private $mot_passe = "";
     private $unAcheteur = null;
+    private $unUtilisateur = null;
 
     // ******************* Constructeur vide
 	public function __construct() {
@@ -27,15 +30,27 @@ class creationCompte extends Controleur {
     // ******************* Méthode exécuter action
     public function executerAction() {
 
-        if(isset($_POST['nom']) and isset($_POST['telephone'])){
+
+        if(isset($_POST['nom']) and isset($_POST['telephone']) and isset($_POST['motDePasse'])){
+            
             $this->nom_acheteur = $_POST['nom'];
             $this->telephone_acheteur = $_POST['telephone'];
+            $this->mot_passe = $_POST['motDePasse'];
             $this->id_acheteur = AcheteurDAO::obtenirProchainId();
-                
             $this->unAcheteur = new Acheteur($this->id_acheteur, $this->nom_acheteur, $this->telephone_acheteur, 0 );
+            
+            if (count(AcheteurDAO::chercherTous()) < count(UtilisateurDAO::chercherTous())){
             $this->unAcheteur = AcheteurDAO::inserer($this->unAcheteur);
-            array_push ($this->messagesSucces,"Création Réussi!");
-        }               
+            $this->unUtilisateur = UtilisateurDAO::chercher($this->id_acheteur);
+            $this->unUtilisateur->setMotPasse($this->mot_passe);
+            UtilisateurDAO::modifier($this->unUtilisateur);
+            array_push ($this->messagesSucces,"Création Réussi! votre ID assignée est : ". $this->id_acheteur);
+        }else{
+            array_push ($this->messagesErreur,"Vous n'avez pas de ID disponible.");
+
+            }
+            
+        }
 
         return "pageCreationCompte";
     }
