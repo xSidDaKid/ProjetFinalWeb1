@@ -10,7 +10,7 @@
 		Fonctions d'affichage des options du menu
 	********************************************** */
 	function afficherMenu($categorieActeur) {
-		$categorieActeur = $_SESSION['categorieUtilisateur'];
+
 		//Visiteur par défaut
 		$tableauOptions=[ "Accueil"=>DOSSIER_BASE_LIENS."/index.php?=voirPageAccueil",
 			"Informations générales"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageInfo",

@@ -8,7 +8,8 @@
         <ul class="navbar-nav">
             <?php
 					include_once (DOSSIER_BASE_INCLUDE."vues/fonctions_affichage/mes_fonctions.inc.php");
-					afficherMenu("visiteur");
+					$categorieActeur = $controleur->getCategorieUtilisateur();
+                    afficherMenu($categorieActeur);
 				?>
         </ul>
     </div>
