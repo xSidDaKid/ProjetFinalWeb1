@@ -20,6 +20,7 @@
 	    include (DOSSIER_BASE_INCLUDE."vues/inclusions_html/menu.inc.php");
 	?>
     <h1 class="p-3 display-2">Création d'un compte</h1>
+
     <?php
           echo "<div class='bg-success text-center'>";
           afficherSucces($controleur->getMessagesSucces());
@@ -37,32 +38,15 @@
             </div>
             <div class="form-group">
                 <label>Mot de passe : </label>
-                <input type="password" name="modeDePasse" id="modeDePasse" required />
+                <input type="password" name="motDePasse" id="motDePasse" required />
             </div>
             <div class="form-group">
                 <label>Téléphone : </label>
                 <input type="number" name="telephone" id="telephone" required />
             </div>
-            <input type="submit" value="Créer" />
+            <input class="btn btn-primary" type="submit" value="Créer" />
         </form>
     </div>
-
-    <?php 
-      /* $tabAcheteurs = $controleur->getAcheteurs();
-       echo "<ul class='list-group'>";
-       foreach ($tabAcheteurs as $tab) {
-           echo "<li class='list-group-item'>";
-           echo $tab;
-           echo "</li>";
-        }
-        echo "</ul>";
-        */
-    ?>
-    <!-- PIED -->
-    <?php
-		include (DOSSIER_BASE_INCLUDE."vues/inclusions_html/pied.inc.php");
-    
-	?>
 </body>
 
 </html>

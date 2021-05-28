@@ -36,16 +36,17 @@ class creationCompte extends Controleur {
             $this->nom_acheteur = $_POST['nom'];
             $this->telephone_acheteur = $_POST['telephone'];
             $this->mot_passe = $_POST['motDePasse'];
+            
             $this->id_acheteur = AcheteurDAO::obtenirProchainId();
             $this->unAcheteur = new Acheteur($this->id_acheteur, $this->nom_acheteur, $this->telephone_acheteur, 0 );
             
             if (count(AcheteurDAO::chercherTous()) < count(UtilisateurDAO::chercherTous())){
-            $this->unAcheteur = AcheteurDAO::inserer($this->unAcheteur);
-            $this->unUtilisateur = UtilisateurDAO::chercher($this->id_acheteur);
-            $this->unUtilisateur->setMotPasse($this->mot_passe);
-            UtilisateurDAO::modifier($this->unUtilisateur);
-            array_push ($this->messagesSucces,"Création Réussi! votre ID assignée est : ". $this->id_acheteur);
-        }else{
+                $this->unAcheteur = AcheteurDAO::inserer($this->unAcheteur);
+                $this->unUtilisateur = UtilisateurDAO::chercher($this->id_acheteur);
+                $this->unUtilisateur->setMotPasse($this->mot_passe);
+                UtilisateurDAO::modifier($this->unUtilisateur);
+                array_push ($this->messagesSucces,"Création Réussi! votre ID assignée est : ". $this->id_acheteur);
+            } else{
             array_push ($this->messagesErreur,"Vous n'avez pas de ID disponible.");
 
             }
