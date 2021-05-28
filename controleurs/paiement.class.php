@@ -44,6 +44,8 @@ class paiement extends Controleur {
                 return "pageConfirmation";
             }
             elseif (ISSET($_POST['credit'])) {
+                array_push ($this->messagesSucces, "Vous avez acheté ".$_SESSION['nb_billet'].
+                           " billet(s) pour le film avec le code [#".$_SESSION['id_film']."] pour ".($_SESSION['prixBillet']* $_SESSION['nb_billet'])."$!");
                 return "pageConfirmation";
             }
          }else {
