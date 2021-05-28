@@ -43,8 +43,8 @@ class evenement extends Controleur {
 			$titre=$_POST["titre"];
 			$this->leTitre = InfosCinemaDAO::chercherParTitre($titre);
 		}
-		elseif(ISSET ($_POST["la_date"])==true){
-			$date=$_POST["la_date"];
+		elseif(ISSET ($_POST["date"])==true){
+			$date=$_POST["date"];
 			$this->laDate = CinemaDAO::chercherParDate($date);	
 		}		
 		elseif(ISSET ($_POST["code_infos"])==true){
