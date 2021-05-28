@@ -17,7 +17,6 @@
 	include_once(DOSSIER_BASE_INCLUDE."controleurs/supressionAcheteurs.class.php");
 	include_once(DOSSIER_BASE_INCLUDE."controleurs/nombreBillet.class.php");
 	include_once(DOSSIER_BASE_INCLUDE."controleurs/paiement.class.php");
-	include_once(DOSSIER_BASE_INCLUDE."controleurs/confirmation.class.php");
 	
 	class ManufactureControleur {
 		//  Méthode qui crée une instance du controleur associé à l'action
@@ -44,9 +43,6 @@
 			}
 			elseif ($action == "voirPagePaiement") {
 				$controleur = new paiement();	
-			}
-			elseif ($action == "voirPageConfirmation") {
-				$controleur = new confirmation();	
 			}
 			elseif ($action == "voirPageAjoutRepresentations") {
 				$controleur = new ajoutRepresentations();

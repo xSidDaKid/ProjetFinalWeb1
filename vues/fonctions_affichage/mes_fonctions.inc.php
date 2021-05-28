@@ -23,7 +23,7 @@
 				"Informations générales"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageInfo",
 				"Événements"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageEvenement",
 				"Modification du compte"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageModificationCompte",
-				"Achat de billet"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageAchatBillet",
+				"Achat de billet"=>DOSSIER_BASE_LIENS."/index.php?action=voirPageRechercheRepresentation",
 				"Déconnexion"=>DOSSIER_BASE_LIENS."/index.php?action=seDeconnecter"]; 
 		}
 		
