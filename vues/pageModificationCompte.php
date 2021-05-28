@@ -32,7 +32,21 @@
           echo "</div>";
     ?>
 
-    <div class="card centrer w-25 mt-5">
+    <?php 
+       $tabAcheteurs = $controleur->getAcheteurs();
+       echo "<ul class='list-group mt-5'>";
+       foreach ($tabAcheteurs as $tab) {
+           if ($tab->getIdAcheteur() == $id) {
+                echo "<li class='list-group-item centrer text-center' style=width:500px;font-size:20px;>";
+                echo $tab;
+                echo "</li>";
+            }
+        }
+        echo "</ul>";
+        
+    ?>
+
+    <div class="card centrer w-25 mt-3">
         <div class="form-group">
             <label for="text">Votre ID est: [#<?php echo $id;?>]</label>
             <form action="<?php echo DOSSIER_BASE_LIENS;?>/index.php?action=voirPageModificationCompte" method="post">
@@ -42,8 +56,8 @@
                         aria-describedby="helpId" required>
                 </div>
                 <div class="form-group">
-                    <label for="text">Solde</label>
-                    <input type="text" name="solde" id="" class="form-control" placeholder="Solde"
+                    <label for="text">Paiement du solde</label>
+                    <input type="text" name="solde" id="" class="form-control" placeholder="Paiement"
                         aria-describedby="helpId" required>
                 </div>
                 <input class="btn btn-primary" type="submit" value="Modifier" />
@@ -51,17 +65,7 @@
         </div>
     </div>
     <br>
-    <?php 
-       $tabAcheteurs = $controleur->getAcheteurs();
-       echo "<ul class='list-group'>";
-       foreach ($tabAcheteurs as $tab) {
-           echo "<li class='list-group-item'>";
-           echo $tab;
-           echo "</li>";
-        }
-        echo "</ul>";
-        
-    ?>
+
     <!-- PIED -->
     <?php
 		include (DOSSIER_BASE_INCLUDE."vues/inclusions_html/pied.inc.php");
