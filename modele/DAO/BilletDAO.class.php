@@ -138,7 +138,7 @@ class BilletDAO implements DAO {
 			// On prépare la commande update
 			$requete=$connexion->prepare("UPDATE billet SET prix_paye=?, numero_Cinema=?, id_acheteur=? WHERE numero_billet=?");
 
-			//$tableauInfos=[$unBillet->getNumeroBillet(),$unBillet->getPrixPaye(), $unBillet->getNumeroCinema(),$unBillet->getIdAcheteur()];
+			$tableauInfos=[$unBillet->getNumeroBillet(),$unBillet->getPrixPaye(), $unBillet->getNumeroCinema(),$unBillet->getIdAcheteur()];
 
 			// On exécute la requête			   
 			$requete->execute($tableauInfos);
