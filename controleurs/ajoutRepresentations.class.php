@@ -10,16 +10,12 @@ include_once(DOSSIER_BASE_INCLUDE."modele/DAO/infosCinemaDAO.class.php");
 include_once(DOSSIER_BASE_INCLUDE."modele/DAO/CinemaDAO.class.php");
 
 class ajoutRepresentations extends Controleur {
-    private $leCode;
-    private $id;
-    private $unCinema=null;
+    private $leCode = null;
+    private $Code = null;
     private $tabCinema=null;
     // ******************* Constructeur vide
 	public function __construct() {
 		parent::__construct();
-	}
-    public function getLeCode(){
-		return $this->leCode;
 	}
     public function getCinema() {
         $this->tabCinema = CinemaDAO::chercherTous();
@@ -28,32 +24,23 @@ class ajoutRepresentations extends Controleur {
 
     // ******************* Méthode exécuter action
     public function executerAction() {
+        unset($_SESSION['date']);
+        unset($_SESSION['prix']);
+        unset($_SESSION['place_totales']);
+        unset($_SESSION['place_vendues']);
+        unset($_SESSION['code_infos']);
+
         if(ISSET ($_POST["code_infos"])){
-			$code=$_POST["code_infos"];
-			$this->leCode = InfosCinemaDAO::chercher($code);	
+			$this->code=$_POST["code_infos"];
+            $_SESSION["code_infos"] = $this->code;
+			$this->leCode = InfosCinemaDAO::chercher($this->code);	
             if($this->leCode!=null){
                 return "pageInfoRepresentation";
             }
             else {
                 array_push ($this->messagesErreur,"Le code film n'existe pas.");
-            }
-    
+            }    
 		}
-
-        if (ISSET($_POST["date"])){
-            if (ISSET($_POST["prix"])){
-                if (ISSET($_POST["place_totales"])){
-                    if (ISSET($_POST["place_vendues"])){
-                        $id = CinemaDAO::obtenirProchainNumero();
-                        $this->unCinema = new Cinema($id, $_POST["date"], $_POST["prix"], $_POST["place_totales"], $_POST["place_vendues"] ,$this->getLeCode());
-                        CinemaDAO::inserer($this->unCinema); 
-
-                    }
-                }
-            }
-        }
-
-
         return "pageAjoutRepresentations";
     }
 }
