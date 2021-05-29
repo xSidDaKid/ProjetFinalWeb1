@@ -46,14 +46,15 @@
 
     <img src="images\info.png" style="float:left" width="100px">
     <div class="card w-25 mt-2 ml-3 p-2">
-        <form class="mon_formulaire" action="<?php echo DOSSIER_BASE_LIENS;?>/index.php?action=voirPageAjoutInfoRepresentations" method="post">
+        <form class="mon_formulaire"
+            action="<?php echo DOSSIER_BASE_LIENS;?>/index.php?action=voirPageAjoutInfoRepresentations" method="post">
             <div class="form-group">
                 <label>Date du film : </label>
                 <input type="date" name="date" required />
             </div>
             <div class="form-group">
                 <label>Prix du film: </label>
-                <input type="number" name="prix" required />
+                <input type="number" name="prix" step="any" required />
             </div>
             <div class="form-group">
                 <label>Places totales: </label>
@@ -63,13 +64,14 @@
                 <label>Places vendues: </label>
                 <input type="number" name="place_vendues" required />
             </div>
-            <input class="btn btn-primary" type="submit" value="Créer" />
+            <input class="m-2 btn btn-primary" type="submit" value="Créer" />
         </form>
         <form action="<?php echo DOSSIER_BASE_LIENS;?>/index.php?action=voirPageAjoutRepresentations" method="post">
-            <input class="btn btn-primary" type="submit" name="terminer" value="Terminer" />
+            <input class="m-2 btn btn-primary" type="submit" name="terminer" value="Terminer" />
         </form>
 
     </div>
+    <br><br><br><br>
     <?php 
        /*$tabCinema = $controleur->getCinema();
        echo "<ul class='list-group'>";
