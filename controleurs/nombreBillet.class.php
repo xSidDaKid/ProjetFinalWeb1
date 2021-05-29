@@ -57,8 +57,11 @@ class nombreBillet extends Controleur {
                             CinemaDAO::modifier($unCinema[$compteur]);
                             $_SESSION['nbPlaces'] = $unCinema[$compteur]->calculerPlacesDisponibles();
                             $_SESSION['prixBillet'] = $unCinema[$compteur]->getPrixUnBillet();
-                            BilletDAO::inserer(new Billet (BilletDAO::obtenirProchainNumero(), $_SESSION['prixBillet'], 
-                                $unCinema[$compteur]->getNumeroCinema(), $this->getIdUtilisateur()));
+                            $_SESSION['code'] = $unCinema[$compteur]->getNumeroCinema();
+
+                            $unBillet = new Billet (BilletDAO::obtenirProchainNumero(), $_SESSION['prixBillet'], $this->getIdUtilisateur(), $_SESSION['code']);
+                            BilletDAO::inserer($unBillet);
+                         
                             return "pagePaiement";
                         }elseif ($compteur == $longueur) {
                             array_push ($this->messagesErreur,"Il n'y a pas assez de billets disponible");
@@ -71,7 +74,11 @@ class nombreBillet extends Controleur {
                             CinemaDAO::modifier($tab2);
                             $_SESSION['nbPlaces'] = $unCinema[$compteur]->calculerPlacesDisponibles();
                             $_SESSION['prixBillet'] = $unCinema[$compteur]->getPrixUnBillet();
+                            $_SESSION['code'] = $unCinema[$compteur]->getNumeroCinema();
                          }
+                        $unBillet = new Billet (BilletDAO::obtenirProchainNumero(), $_SESSION['prixBillet'], $this->getIdUtilisateur(), $_SESSION['code']);
+                        BilletDAO::inserer($unBillet);
+                         
                         return "pagePaiement";
                     }
                     else {
@@ -85,7 +92,10 @@ class nombreBillet extends Controleur {
                             CinemaDAO::modifier($tab2);
                             $_SESSION['nbPlaces'] = $unCinema[$compteur]->calculerPlacesDisponibles();
                             $_SESSION['prixBillet'] = $unCinema[$compteur]->getPrixUnBillet();
+                            $_SESSION['code'] = $unCinema[$compteur]->getNumeroCinema();
                          }
+                        $unBillet = new Billet (BilletDAO::obtenirProchainNumero(), $_SESSION['prixBillet'], $this->getIdUtilisateur(), $_SESSION['code']);
+                        BilletDAO::inserer($unBillet);
                         return "pagePaiement";
                     }
                     else {
