@@ -40,7 +40,16 @@
             </div>
             <button type="submit" class="btn btn-primary">Suivant</button>
         </form>
+        <?php
+          echo "<ul class='list-group mt-2'>";
+          foreach ($controleur->getTabInfoFilms() as $tab) {
+            echo "<li class='list-group-item'>".$tab."</li>";
+          }
+          echo "</ul>";
+        
+          ?>
     </div>
+    <br><br><br><br>
     <!-- PIED -->
     <?php
 		include (DOSSIER_BASE_INCLUDE."vues/inclusions_html/pied.inc.php");

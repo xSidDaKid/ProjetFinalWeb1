@@ -18,6 +18,7 @@ class achatBillet extends Controleur {
     private $code = null;
     private $placeDisponibles = null;
     private $prix = null;
+    private $tabInfoFilms = null;
     
     // ******************* Constructeur vide
 	public function __construct() {
@@ -30,6 +31,10 @@ class achatBillet extends Controleur {
     
     public function getPlaces() {
         return $this->placeDisponibles;
+    }
+
+    public function getTabInfoFilms() {
+        return $this->tabInfoFilms;
     }
 /**
  * ÉTAPE 1: pageRechercheRepresentation
@@ -46,6 +51,7 @@ class achatBillet extends Controleur {
 
     // ******************* Méthode exécuter action
     public function executerAction() {
+        $this->tabInfoFilms = InfosCinemaDAO::chercherTous();
         if (ISSET($_POST['id_film'])) {
             $this->code = $_POST['id_film'];
             $_SESSION['id_film'] = $this->code;
@@ -53,12 +59,6 @@ class achatBillet extends Controleur {
             $this->unFilm = InfosCinemaDAO::chercher($_POST['id_film']);
             $this->unCinema = CinemaDAO::chercherAvecFiltre("WHERE code_infos=".$_POST['id_film']);
 
-            foreach ($this->unCinema as $tab) {
-                $this->placeDisponibles = $tab->calculerPlacesDisponibles();
-                $_SESSION['nbPlaces'] = $this->placeDisponibles;
-                $this->prix = $tab->getPrixUnBillet();
-                $_SESSION['prixBillet'] = $this->prix;
-            }
             if ($this->unFilm == null) { 
                 array_push ($this->messagesErreur,"Ce film n'existe pas.");
                 return "pageRechercheRepresentation";
