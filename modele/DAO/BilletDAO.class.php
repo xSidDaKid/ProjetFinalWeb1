@@ -121,7 +121,7 @@ class BilletDAO implements DAO {
 			$requete=$connexion->prepare("INSERT INTO billet (numero_billet,prix_paye,numero_Cinema,id_acheteur) VALUES (?,?,?,?)");
 
 			// On l’exécute, et on retourne l’état de réussite (true/false)
-			$tableauInfos=[$unBillet->getNumeroBillet(),$unBillet->getPrixPaye(), $unBillet->getNumeroCinema(),$unBillet->getIdAcheteur()];
+			$tableauInfos=[$unBillet->getNumeroBillet(),$unBillet->getPrixPaye(), $unBillet->getEvenement(),$unBillet->getIdAcheteur()];
 
 			return $requete->execute($tableauInfos);
 	}
