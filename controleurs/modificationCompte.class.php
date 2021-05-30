@@ -25,17 +25,15 @@ class modificationCompte extends Controleur {
     // ******************* Méthode exécuter action
     public function executerAction() {
         $id=$this->idUtilisateur;
-        $this->unAcheteur = AcheteurDAO::chercher($this->idUtilisateur);
+        $id-=2;
+        $this->unAcheteur = AcheteurDAO::chercher($id);
 
-    if (ISSET($_POST['telephone']) and ISSET($_POST['solde'])){
-        $this->unAcheteur->setTelephone($_POST['telephone']);
-        $this->unAcheteur->payerSolde($_POST['solde']);
-       AcheteurDAO::modifier($this->unAcheteur);
-       array_push ($this->messagesSucces,"Modification éffectué");
-    }
-
-
-      
+        if (ISSET($_POST['telephone']) and ISSET($_POST['solde'])){
+            $this->unAcheteur->setTelephone($_POST['telephone']);
+            $this->unAcheteur->payerSolde($_POST['solde']);
+            AcheteurDAO::modifier($this->unAcheteur);
+            array_push ($this->messagesSucces,"Modification éffectué");
+        }      
         return "pageModificationCompte";
     }
 }
