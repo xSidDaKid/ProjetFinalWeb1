@@ -42,19 +42,31 @@ class evenement extends Controleur {
 		if(ISSET ($_POST["titre"])==true){
 			$titre=$_POST["titre"];
 			$this->leTitre = InfosCinemaDAO::chercherParTitre($titre);
+			if ($this->leTitre == null) {
+				array_push ($this->messagesErreur,"Ce film n'existe pas.");
+			}
 		}
 		elseif(ISSET ($_POST["date"])==true){
 			$date=$_POST["date"];
-			$this->laDate = CinemaDAO::chercherParDate($date);	
+			$this->laDate = CinemaDAO::chercherParDate($date);
+			if ($this->laDate == null) {
+				array_push ($this->messagesErreur,"Aucun film à cette date");
+			}	
 		}		
 		elseif(ISSET ($_POST["code_infos"])==true){
 			$code=$_POST["code_infos"];
-			$this->leCode = InfosCinemaDAO::chercher($code);	
+			$this->leCode = InfosCinemaDAO::chercher($code);
+			if ($this->leCode == null) {
+				array_push ($this->messagesErreur,"Aucun film avec ce code.");
+			}	
 		}
 		
 		elseif(ISSET ($_POST["salle"])==true){
 			$salle=$_POST["salle"];
 			$this->laSalle = InfosCinemaDAO::chercherParSalle($salle);
+			if ($this->laSalle == null) {
+				array_push ($this->messagesErreur,"Cette salle n'existe pas");
+			}
 		}		
         return "pageEvenement";
 

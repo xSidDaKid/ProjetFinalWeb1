@@ -22,6 +22,14 @@
 	    include (DOSSIER_BASE_INCLUDE."vues/inclusions_html/menu.inc.php");
 	?>
     <h1 class="p-3 display-2">Événement</h1>
+    <?php
+          echo "<div class='bg-success text-center'>";
+          afficherSucces($controleur->getMessagesSucces());
+          echo "</div>";
+          echo "<div class='bg-danger text-center'>";
+          afficherErreurs($controleur->getMessagesErreur());
+          echo "</div>";
+    ?>
     </br>
     <div class="card m-3 p-3 w-50">
         <form class="mon_formulaire p-3" action="<?php echo DOSSIER_BASE_LIENS;?>/index.php?action=voirPageEvenement"
@@ -41,7 +49,7 @@
             action="<?php echo DOSSIER_BASE_LIENS;?>/index.php?action=voirPageEvenement" method="post">
             <div>
                 <label>Rechercher par date : </label>
-                <input type="text" name="date" />
+                <input type="date" name="date" />
             </div>
             <input class="btn btn-primary" type="submit" value="Chercher par date" />
         </form>
@@ -54,7 +62,7 @@
             action="<?php echo DOSSIER_BASE_LIENS;?>/index.php?action=voirPageEvenement" method="post">
             <div>
                 <label>Rechercher par code : </label>
-                <input type="text" name="code_infos" />
+                <input type="number" name="code_infos" />
             </div>
             <input class="btn btn-primary" type="submit" value="Chercher le code infos" />
         </form>
@@ -67,7 +75,7 @@
             action="<?php echo DOSSIER_BASE_LIENS;?>/index.php?action=voirPageEvenement" method="post">
             <div>
                 <label>Rechercher par salle : </label>
-                <input type="text" name="salle" />
+                <input type="text" name="salle" placeholder="salle x" />
             </div>
             <input class="btn btn-primary" type="submit" value="Chercher par salle" />
         </form>
