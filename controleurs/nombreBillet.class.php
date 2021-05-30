@@ -60,7 +60,7 @@ class nombreBillet extends Controleur {
                             $_SESSION['code'] = $unCinema[$compteur]->getNumeroCinema();
 
                             $unBillet = new Billet (BilletDAO::obtenirProchainNumero(), $_SESSION['prixBillet'], $this->getIdUtilisateur(), $_SESSION['code']);
-                            BilletDAO::inserer($unBillet);
+                            BilletDAO::inserer($unBillet);//Il y a une limite au nombre de billets qu'on peut ajouter
                          
                             return "pagePaiement";
                         }elseif ($compteur == $longueur) {
@@ -77,7 +77,7 @@ class nombreBillet extends Controleur {
                             $_SESSION['code'] = $unCinema[$compteur]->getNumeroCinema();
                          }
                         $unBillet = new Billet (BilletDAO::obtenirProchainNumero(), $_SESSION['prixBillet'], $this->getIdUtilisateur(), $_SESSION['code']);
-                        BilletDAO::inserer($unBillet);
+                        BilletDAO::inserer($unBillet);//Il y a une limite au nombre de billets qu'on peut ajouter
                          
                         return "pagePaiement";
                     }
@@ -95,7 +95,7 @@ class nombreBillet extends Controleur {
                             $_SESSION['code'] = $unCinema[$compteur]->getNumeroCinema();
                          }
                         $unBillet = new Billet (BilletDAO::obtenirProchainNumero(), $_SESSION['prixBillet'], $this->getIdUtilisateur(), $_SESSION['code']);
-                        BilletDAO::inserer($unBillet);
+                        BilletDAO::inserer($unBillet);//Il y a une limite au nombre de billets qu'on peut ajouter
                         return "pagePaiement";
                     }
                     else {
