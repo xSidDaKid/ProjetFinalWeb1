@@ -3,7 +3,7 @@
 // Description   : Contrôleur pour la page d'info
 // Date          : 18 mai 2021
 // Auteur        : Shajaan Balasingam
-// Modifé par    : 
+// Modifé par    : Louai Roueha
 // *****************************************************************************************
 include_once(DOSSIER_BASE_INCLUDE."controleurs/controleur.abstract.class.php");
 include_once(DOSSIER_BASE_INCLUDE."modele/DAO/InfosCinemaDAO.class.php");
@@ -17,6 +17,7 @@ class creationCompte extends Controleur {
     private $mot_passe = "";
     private $unAcheteur = null;
     private $unUtilisateur = null;
+    protected $idUtilisateur = null;
 
     // ******************* Constructeur vide
 	public function __construct() {
@@ -42,11 +43,10 @@ class creationCompte extends Controleur {
             
             if (count(AcheteurDAO::chercherTous()) < count(UtilisateurDAO::chercherTous())){
                 $this->unAcheteur = AcheteurDAO::inserer($this->unAcheteur);
-                $this->unUtilisateur = UtilisateurDAO::chercher($this->id_acheteur);
-                $this->unUtilisateur->setMotPasse($this->mot_passe);
-                UtilisateurDAO::modifier($this->unUtilisateur);
-                array_push ($this->messagesSucces,"Création Réussi! votre ID assignée est : ". $this->id_acheteur);
-            } else{
+                $this->idUtilisateur = UtilisateurDAO::obtenirProchainId();
+                UtilisateurDAO::inserer(new Utilisateur($this->idUtilisateur, $this->mot_passe, "acheteur"));
+                array_push ($this->messagesSucces,"Création Réussi! votre ID assignée est : ". $this->idUtilisateur);
+            } else {
             array_push ($this->messagesErreur,"Vous n'avez pas de ID disponible.");
 
             }
