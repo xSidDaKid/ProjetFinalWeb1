@@ -42,12 +42,14 @@
 			echo "<li class='list-group-item'>Nombre total de cinémas : ";
 			$tabCinema=$controleur->getCinemas();
 			echo count($tabCinema)."</li>";
+			echo "<br/>";
 			echo "</ul>"
 		?>
         <ul class='list-group'>
             <li class='list-group-item'>Propriétaire/Gérant : Kumaran Satkunanathan, Louai Roueha, Shajaan Balasingam
             </li>
-            <li class='list-group-item'>Numéro de contact:514-xxx-xxxx</li>
+            <br />
+            <li class='list-group-item'>Numéro de contact: 514-xxx-xxxx</li>
         </ul>
     </div>
 

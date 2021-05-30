@@ -20,20 +20,21 @@ class info extends Controleur {
 		parent::__construct();
 	}
     public function getCinemas() {
-        $this->tabCinemas = CinemaDAO::chercherTous();
         return $this->tabCinemas;
     }
     public function getBillets() {
-        $tabBillets=BilletDAO::chercherTous();
         return $this->tabBillets;
     }
     public function getAcheteurs() {
-        $this->tabAcheteurs = AcheteurDAO::chercherTous();
         return $this->tabAcheteurs;
     }
 
     // ******************* Méthode exécuter action
     public function executerAction() {
+        $this->tabCinemas = CinemaDAO::chercherTous();
+        $this->tabBillets=BilletDAO::chercherTous();
+        $this->tabAcheteurs = AcheteurDAO::chercherTous();
+        
         return "pageInfo";
     }
 }
